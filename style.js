@@ -1,5 +1,5 @@
 const textDisplay = document.getElementById('text')
-const phrases = ['Website Designer', '2D Game Developer', 'Freelancer']
+const phrases = ['Website Developer', '2D Game Developer', 'Freelancer']
 let i = 0
 let j = 0
 let currentPhrase = []
@@ -39,7 +39,7 @@ function loop() {
             }
         }
     }
-    const spedUp = Math.random() * (80 - 50) + 50
+    const spedUp = Math.random() * (80 - 50) + 10
     const normalSpeed = Math.random() * (200 - 100) + 100
     const time = isEnd ? 2000 : isDeleting ? spedUp : normalSpeed
     setTimeout(loop, time)

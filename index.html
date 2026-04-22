@@ -5,8 +5,10 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="css/main.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="css/main.css?v=1.1" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 
     <!--Let browser know website is optimized for mobile-->
@@ -14,104 +16,155 @@
     <title>Roly's Portfolio</title>
 </head>
 
-<body class="grey darken-4  ">
-    <ul class="side-nav linear-grey " id="mobile-nav">
-        <br><br><br>
-        <li><a href="#home" class="white-text">Home</a></li>
-        <li><a href="#about" class="white-text">About</a></li>
-        <li><a href="#projects" class="white-text">Projects</a></li>
-        <li><a href="#skills" class="white-text">Skills</a></li>
-        <li><a href="#contact" class="white-text">Contact</a></li>
-    </ul>
+<body class="bg-dark">
 
+    <nav id="navbar" class="navbar navbar-light fixed-top   border-bottom px-4 py-2 shadow-sm"
+        style="position:sticky; top:0; z-index:1020; background-color: #212529;">
+        <div class="d-flex w-100 justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <button id="toggleSidebarBtn" class="btn text-dark text-white p-2 border-0 me-3">
+                    <i class="bi bi-list" style="font-size: 1.7rem; color: #fff;"></i>
+                </button>
+                <h5 class="fw-bold mb-0 text-light">Portfolio</h5>
+            </div>
+            <ul class="nav justify-content-end">
+                <li class="nav-item"><a href="#home" class="nav-link text-light">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link text-light">About</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link text-light">Projects</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link text-light">Skills</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link text-light">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <div class="fadein">
-        <div class="navbar-fixed">
-            <nav class="transparent ">
-                <div class="nav-wrapper">
-                    <div class="container">
-                        <a href="#" class="brand-logo hide-on-med-and-down">Roly's <span class="blue-text">Portfolio</span></a>
-                        <a href="#" class="button-collapse" data-activates="mobile-nav"><i class="material-icons">menu</i></a>
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <div id="sidebar" class="sidebar bg-light text-dark position-fixed vh-100"
+        style="width: 250px; left: -250px; top: 0; z-index: 1030; transition: left 0.3s;">
+        <div class="p-3">
+            <button id="closeSidebar" class="btn btn-link text-dark float-end"
+                style="font-size: 1.5rem;">&times;</button>
+            <h5 class="text-dark">Menu</h5>
+            <ul class="list-unstyled mt-3">
+                <li><a href="#home" class="text-dark text-decoration-none d-block py-2">Home</a></li>
+                <li><a href="#about" class="text-dark text-decoration-none d-block py-2">About</a></li>
+                <li><a href="#projects" class="text-dark text-decoration-none d-block py-2">Projects</a></li>
+                <li><a href="#skills" class="text-dark text-decoration-none d-block py-2">Skills</a></li>
+                <li><a href="#contact" class="text-dark text-decoration-none d-block py-2">Contact</a></li>
+            </ul>
+        </div>
+    </div>
 
-                            <li><a href="#home" class="hover-button">Home</a></li>
-                            <li><a href="#about" class="hover-button">About</a></li>
-                            <li><a href="#projects" class="hover-button">Projects</a></li>
-                            <li><a href="#skills" class="hover-button">Skills</a></li>
-                            <li><a href="#contact" class="hover-button">Contact</a></li>
+    
+    <div class="fab-radial-container">
+        <!-- Main toggle button -->
+        <button class="main-fab-btn" id="radialMainFab" aria-label="Open circular menu">
+            <i class="bi bi-plus-lg"></i>
+        </button>
 
-                        </ul>
+        <!-- Circular positioned menu wrapper -->
+        <div class="circular-menu" id="circularMenu">
+            <!-- 5 action buttons, will be positioned dynamically in a circle -->
+            <button class="circular-action" data-action="share" data-bs-toggle="tooltip" data-bs-placement="left"
+                title="Share this" aria-label="Share">
+                <i class="bi bi-share-fill"></i>
+            </button>
+            <button class="circular-action" data-action="edit" data-bs-toggle="tooltip" data-bs-placement="left"
+                title="Edit content" aria-label="Edit">
+                <i class="bi bi-pencil-square"></i>
+            </button>
+            <button class="circular-action" data-action="favorite" data-bs-toggle="tooltip" data-bs-placement="left"
+                title="Add to favorites" aria-label="Favorite">
+                <i class="bi bi-heart-fill"></i>
+            </button>
+            <button class="circular-action" data-action="notify" data-bs-toggle="tooltip" data-bs-placement="left"
+                title="Notifications" aria-label="Notifications">
+                <i class="bi bi-bell-fill"></i>
+            </button>
+            <button class="circular-action" data-action="settings" data-bs-toggle="tooltip" data-bs-placement="left"
+                title="Settings" aria-label="Settings">
+                <i class="bi bi-gear-fill"></i>
+            </button>
+        </div>
+    </div>
 
+    <div id="sidebarOverlay" class="position-fixed"
+        style="top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1025; display:none;"></div>
 
-                    </div>
-                </div>
-            </nav>
-
+    <main class="fadein" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="50">
+        <div class="scrollspy" id="home">
+           
 
         </div>
-        <div class="scrollspy" id="home">
-            <section class="section">
+        <!-- <div class="row scrollspy" id="home">
+           
+        </div> -->
+         <section class="section py-5">
                 <div class="row">
-                    <div class="col s12 m10 l10 offset-m1 offset-l1">
-                        <div class="container">
-                            <br><br><br>
-                            <h3 class=" white-text">Hi, my name is</h3>
-                            <h1 class="white-text">Roly Gatus</h1>
-                            <h4 class="white-text">and I'm a <span class="blue-text text-darken-3" id="text"></span><span class="blinking">I</span></h4>
+                    <div class="col-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
+                        <div class="container mt-5">
+                            
+                            <h3 class="text-white">Hi, my name is</h3>
+                            <h1 class="text-white">Roly Gatus</h1>
+                            <h4 class="text-white">and I'm a <span class="text-primary"
+                                    id="text"></span><span class="blinking">I</span></h4>
 
 
                         </div>
                     </div>
                 </div>
             </section>
-
-        </div>
-        <!-- <div class="row scrollspy" id="home">
-           
-        </div> -->
-        <br><br><br><br><br><br><br><br><br>
-        <section class="grey section darken-2">
+        <section class="linear-grey py-2">
             <div class=" container scrollspy" id="about">
                 <div class="row">
-                    <div class=" col s12 m12">
+                    <div class="col-12">
                         <div class=""><br>
 
 
                             <div class="row">
-                                <div class="col s12 m12">
-                                    <div class="card horizontal linear-grey z-depth-4 ">
-                                        <div class="card-image">
-                                            <img src="img/profile_pic.png" alt="">
-                                        </div>
-                                        <div class="card-stack">
-                                            <div class="card-content">
-                                                <div class="container">
-                                                    <h2 class="white-text center">About Me</h2>
-                                                    <br><br>
-                                                    <h4 class="white-text">Hi, I'm Roly.</h4>
-                                                    <p class="white-text">I'm a Website Designer and 2D Game Developer based in the Bahay Toro of Quezon City.</p>
-                                                    <p class="white-text">I'm 20 years old and I'm a Highschool Graduate of San Francisco Highschool with a strand of TVL-ICT(Computer Program and Animation). And I've coded for four years and have learned a lot of things along
-                                                        the way.
-                                                    </p>
-                                                    <p class="white-text">I've study Web Designer at TESDA(TWSP) and self-study using Unity 2D Platformer Games.</p>
-                                                    <p class="white-text">I am in love with programming as Web Designer, and Game Developer is a way for me to express myself, my talents, and my skills by creating Design and Game Development that many people benefit from my
-                                                        work and enjoy my games.</p>
+                                <div class="col-12">
+                                    <div class="card mb-3 d-flex linear-grey shadow-lg">
 
-                                                </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <img src="img/profile_pic.png" alt="Profile picture of Roly Gatus"
+                                                    class="card-img-left img-fluid rounded-start" style="max-width: 400px;">
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="card-body">
+                                                    <div class="container">
+                                                        <h2 class="text-white text-center">About Me</h2>
+                                                        <br><br>
+                                                <h4 class="text-white">Hi, I'm Roly.</h4>
+                                                <p class="text-white">I'm a Website Designer and 2D Game Developer based
+                                                    in the Bahay Toro of Quezon City.</p>
+                                                <p class="text-white">I'm <span id="age"></span> years old and I'm a Highschool Graduate of
+                                                    San Francisco Highschool with a strand of TVL-ICT(Computer Program
+                                                    and Animation). And I've coded for four years and have learned a lot
+                                                    of things along
+                                                    the way.
+                                                </p>
+                                                <p class="text-white">I've study Web Designer at TESDA(TWSP) and
+                                                    self-study using Unity 2D Platformer Games.</p>
+                                                <p class="text-white">I am in love with programming as Web Designer, and
+                                                    Game Developer is a way for me to express myself, my talents, and my
+                                                    skills by creating Design and Game Development that many people
+                                                    benefit from my
+                                                    work and enjoy my games.</p>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
+
                     </div>
                 </div>
+            </div>
 
             </div>
         </section>
 
-        <section class="grey section darken-2">
+        <section class="linear-grey py-5">
             <div class="row scrollspy" id="projects">
                 <div class="col s12 m12 ">
                     <div class="">
@@ -121,57 +174,68 @@
                                 <div class="card linear-grey z-depth-4"><br>
                                     <h3 class="white-text center">Projects</h3>
                                     <div class="row">
-                                        <div class="col s12 m12 l6">
-                                            <h4 class="white-text">Web Design</h4>
-                                            <table class="bordered  responsive-table">
+                                        <div class="col-12 col-lg-6">
+                                            <h4 class="text-white">Web Design</h4>
+                                            <table class="table table-bordered table-responsive">
                                                 <thead>
                                                     <tr>
-                                                        <th class="white-text">Project Name</th>
-                                                        <th class="white-text">Release Date</th>
-                                                        <th class="white-text">Link</th>
+                                                        <th class="text-white">Project Name</th>
+                                                        <th class="text-white">Release Date</th>
+                                                        <th class="text-white">Link</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <th class="white-text">San Francsico High School</th>
-                                                        <th class="white-text">August 13, 2019</th>
-                                                        <th class="white-text"><a href="https://sfhs.netlify.app/index.html" class="btn small waves-effect white black-text  waves-dark">Go To Website</a></th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="white-text">Sample Project on TESDA Training</th>
-                                                        <th class="white-text">July 20,2019</th>
-                                                        <th class="white-text">
-                                                            <a href="bizland/index.html" class="btn waves-effect waves-ripple waves-dark small white black-text">Go To Website</a>
+                                                        <th class="text-white">San Francsico High School</th>
+                                                        <th class="text-white">August 13, 2019</th>
+                                                        <th class="text-white"><a
+                                                                href="https://sfhs.netlify.app/index.html"
+                                                                class="btn btn-sm btn-light text-dark">Go To Website</a>
                                                         </th>
                                                     </tr>
                                                     <tr>
-                                                        <th class="white-text">Sample Project on TESDA Training(R5 Event Management)</th>
-                                                        <th class="white-text">july 22,2019</th>
-                                                        <th class="white-text"><a href="https://r5eventmanagement.netlify.app/index.html" class="small btn waves-effect waves-ripple waves-dark white black-text">Go To Website</a></th>
+                                                        <th class="text-white">Sample Project on TESDA Training</th>
+                                                        <th class="text-white">July 20,2019</th>
+                                                        <th class="text-white">
+                                                            <a href="bizland/index.html"
+                                                                class="btn btn-sm btn-light text-dark">Go To Website</a>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="text-white">Sample Project on TESDA Training(R5 Event
+                                                            Management)</th>
+                                                        <th class="text-white">july 22,2019</th>
+                                                        <th class="text-white"><a
+                                                                href="https://r5eventmanagement.netlify.app/index.html"
+                                                                class="btn btn-sm btn-light text-dark">Go To Website</a>
+                                                        </th>
                                                     </tr>
 
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div class="col s12 m12 l6">
-                                            <h4 class="white-text">Game Projects</h4>
-                                            <table class="bordered responsive-table">
+                                        <div class="col-12 col-lg-6">
+                                            <h4 class="text-white">Game Projects</h4>
+                                            <table class="table table-bordered table-responsive">
                                                 <thead>
                                                     <tr>
-                                                        <th class="white-text">Project Name</th>
-                                                        <th class="white-text">Release Date</th>
-                                                        <th class="white-text">Genre</th>
-                                                        <th class="white-text">Trailer Link</th>
-                                                        <th class="white-text">Link</th>
+                                                        <th class="text-white">Project Name</th>
+                                                        <th class="text-white">Release Date</th>
+                                                        <th class="text-white">Genre</th>
+                                                        <th class="text-white">Trailer Link</th>
+                                                        <th class="text-white">Link</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <th class="white-text">Coming Soon</th>
-                                                        <th class="white-text">N/A</th>
-                                                        <th class="white-text">2D Platformer/Horror</th>
-                                                        <th><a href="#" class="white-text black btn waves-effect waves-light disabled">Trailer</a></th>
-                                                        <th><a href="#" class="white-text black btn waves-effect waves-light disabled">Link</a></th>
+                                                        <th class="text-white">Coming Soon</th>
+                                                        <th class="text-white">N/A</th>
+                                                        <th class="text-white">2D Platformer/Horror</th>
+                                                        <th><a href="#"
+                                                                class="btn btn-light text-dark disabled">Trailer</a>
+                                                        </th>
+                                                        <th><a href="#"
+                                                                class="btn btn-light text-dark disabled">Link</a></th>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -188,48 +252,48 @@
                 </div>
             </div>
         </section>
-        <section class="grey section darken-2">
+        <section class="linear-grey py-5">
             <div class="row scrollspy" id="skills">
-                <div class="col s12 m12">
-                    <div class="card  linear-grey">
+                <div class="col-12">
+                    <div class="card linear-grey">
                         <div class="card-content"><br>
-                            <h3 class="white-text center">Skills</h3>
+                            <h3 class="text-white text-center">Skills</h3>
                             <div class="row">
-                                <div class="col s12 m12 l6">
-                                    <h4 class="center white-text">Language</h4>
-                                    <table class="bordered ">
+                                <div class="col-12 col-lg-6">
+                                    <h4 class="text-center text-white">Language</h4>
+                                    <table class="table table-bordered">
                                         <tbody>
                                             <tr>
-                                                <th class="white-text">HTML</th>
+                                                <th class="text-white">HTML</th>
                                             </tr>
                                             <tr>
-                                                <th class="white-text">CSS</th>
+                                                <th class="text-white">CSS</th>
                                             </tr>
                                             <tr>
-                                                <th class="white-text">Javascript</th>
+                                                <th class="text-white">Javascript</th>
                                             </tr>
                                             <tr>
-                                                <th class="white-text">JQuery</th>
+                                                <th class="text-white">JQuery</th>
                                             </tr>
                                             <tr>
-                                                <th class="white-text">C#</th>
+                                                <th class="text-white">C#</th>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="row">
-                                    <div class="col s12 m12 l6">
-                                        <h4 class="white-text center">Tools</h4>
-                                        <table class=" bordered">
+                                    <div class="col-12 col-lg-6">
+                                        <h4 class="text-white text-center">Tools</h4>
+                                        <table class="table table-bordered">
                                             <tbody>
                                                 <tr>
-                                                    <th class="white-text">Visual Studio Code</th>
+                                                    <th class="text-white">Visual Studio Code</th>
                                                 </tr>
                                                 <tr>
-                                                    <th class="white-text">Unity</th>
+                                                    <th class="text-white">Unity</th>
                                                 </tr>
                                                 <tr>
-                                                    <th class="white-text">Adobe Photoshop</th>
+                                                    <th class="text-white">Adobe Photoshop</th>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -242,33 +306,36 @@
                 </div>
             </div>
         </section>
-        <section class="grey section darken-2">
+        <section class="linear-grey py-5">
             <div class="row scrollspy" id="contact">
-                <div class="col s12 m12 l6 offset-l3 ">
-                    <div class="card large linear-grey">
-                        <div class="card-content">
-                            <h3 class="white-text center">Contact</h3>
+                <div class="col-12 col-lg-6 offset-lg-3">
+                    <div class="card linear-grey">
+                        <div class="card-body">
+                            <h3 class="text-white text-center">Contact</h3>
                             <div class="container">
-                                <table class="bordered ">
+                                <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th class="white-text"></th>
-                                            <th class="white-text"></th>
+                                            <th class="text-white"></th>
+                                            <th class="text-white"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th class="white-text">Gmail</th>
-                                            <th class="white-text"> <a href="mailto:savagekiller096@gmail.com" class="btn waves-effect  waves-dark btn-large  waves-ripple black-text white">Message Me</a></th>
+                                            <th class="text-white">Gmail</th>
+                                            <th class="text-white"> <a href="mailto:savagekiller096@gmail.com"
+                                                    class="btn btn-lg btn-light text-dark">Message Me</a></th>
                                         </tr>
                                         <tr>
-                                            <th class="white-text">Facebook</th>
-                                            <th class="white-text"><a href="https://www.facebook.com/gatus.roly/" class="btn waves-effect waves-dark waves-ripple btn-large black-text white">Message Me</a></th>
+                                            <th class="text-white">Facebook</th>
+                                            <th class="text-white"><a href="https://www.facebook.com/gatus.roly/"
+                                                    class="btn btn-lg btn-light text-dark">Message Me</a></th>
                                         </tr>
 
                                         <tr>
-                                            <th class="white-text">Phone Number</th>
-                                            <th class="white-text"><a href="tel:09982480471" class="btn  white black-text waves-effect waves-dark waves-ripple btn-large">Call Me</a></th>
+                                            <th class="text-white">Phone Number</th>
+                                            <th class="text-white"><a href="tel:09982480471"
+                                                    class="btn btn-lg btn-light text-dark">Call Me</a></th>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -283,124 +350,145 @@
                 </div>
             </div>
         </section>
-        <footer class=" page-footer grey darken-3">
-            <div class="container">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                    <li>
-                        <a href="#home">
-                            <p class="white-text">Home</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#about">
-                            <p class="white-text">About</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#projects">
-                            <p class="white-text">Projects</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#skills">
-                            <p class="white-text">Skills</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#contact">
-                            <p class="white-text">Contact</p>
-                        </a>
-                    </li>
-                </ul>
+    </main>
+    <footer class="bg-dark py-3">
+        <div class="container">
+            <h5 class="text-white">Links</h5>
+            <ul>
+                <li>
+                    <a href="#home">
+                        <p class="text-white">Home</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#about">
+                        <p class="text-white">About</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#projects">
+                        <p class="text-white">Projects</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#skills">
+                        <p class="text-white">Skills</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact">
+                        <p class="text-white">Contact</p>
+                    </a>
+                </li>
+            </ul>
 
-            </div>
-            <div class="footer-copyright grey darken-4">
-                <div class="container center"> Roly's Portfolio &copy; 2021</div>
-
-            </div>
-        </footer>
-
-
-
-
-
-
-    </div>
-
-    <div class="fadeout">
-
-        <div class="row">
-            <div class="col s12 m10 offset-m1">
-                <div class="card transparent   z-depth-3">
-                    <div class=" container">
-                        <br><br><br>
-                        <h2 class=" center glow-blue">Loading</h2>
-                        <div class="center">
-                            <br><br><br>
-                            <div class="container">
-                                <span id="loading-content" class="center white-text"></span>
-                                <div class="center progress transparent">
-                                    <div class="determinate width-anim blue"></div>
-                                </div>
-                            </div> <br><br>
-
-                        </div>
-                    </div>
-                    </h3>
-                </div>
-            </div>
         </div>
+        <div class="bg-dark py-2">
+            <div class="container text-center"> Roly's Portfolio &copy; 2021</div>
+
+        </div>
+    </footer>
+
+
+
+
+
+
     </div>
+
+
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript " src="https://code.jquery.com/jquery-3.2.1.min.js "></script>
-    <script type="text/javascript " src="js/materialize.min.js "></script>
-    <script src="style.js "></script>
-    <script src="style2.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="style.js "></script>
+    <script src="js/js.js"></script>
+    <script src="style2.js"></script>
+    <script src="fab.js"></script>
 
     <script>
-        $(window).scroll(function() {
-            if ($(window).scrollTop() > 2) {
-                $('nav').addClass('linear-grey').removeClass('transparent');
+        (function() {
+    // Set birth date: November 27, 2000 (month is 0-indexed, so 10 = November)
+    const birthDate = new Date(2000, 10, 27);
+
+    function calculateAge() {
+      const today = new Date();
+      let years = today.getFullYear() - birthDate.getFullYear();
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+      const dayDiff = today.getDate() - birthDate.getDate();
+
+      // Adjust if birthday hasn't occurred yet this year
+      if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+        years--;
+      }
+
+      return years;
+    }
+
+    function updateAge() {
+      const ageSpan = document.getElementById('age');
+      if (ageSpan) {
+        ageSpan.textContent = calculateAge();
+      }
+    }
+
+    // Run immediately
+    updateAge();
+
+    // Optional: update automatically at midnight or when needed
+    // Calculate milliseconds until next midnight to update precisely
+    const now = new Date();
+    const msUntilMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1) - now;
+    setTimeout(() => {
+      updateAge();
+      // Then update once per day
+      setInterval(updateAge, 86400000);
+    }, msUntilMidnight);
+  })();
+        document.getElementById('toggleSidebarBtn').addEventListener('click', function () {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            if (sidebar.style.left === '0px') {
+                sidebar.style.left = '-250px';
+                overlay.style.display = 'none';
             } else {
-                $('nav').addClass('transparent').removeClass('linear-grey');
+                sidebar.style.left = '0px';
+                overlay.style.display = 'block';
             }
-        })
-        $('.fadein').hide();
-        setTimeout(() => {
+        });
 
-            $(document).ready(function() {
-                $('.fadein').fadeIn();
-                $('.fadeout').fadeOut();
-                $('.parallax').parallax({
-                    fullWidth: true
-                });
-                // Init Sidenav
-                $('.count').each(function() {
-                    $(this).prop('Counter', 0).animate({
-                        Counter: $(this).text()
-                    }, {
-                        duration: 5000,
-                        easing: 'swing',
-                        step: function(now) {
-                            $(this).text(Math.ceil(now));
-                        }
+        document.getElementById('closeSidebar').addEventListener('click', function () {
+            document.getElementById('sidebar').style.left = '-250px';
+            document.getElementById('sidebarOverlay').style.display = 'none';
+        });
+
+        document.getElementById('sidebarOverlay').addEventListener('click', function () {
+            document.getElementById('sidebar').style.left = '-250px';
+            this.style.display = 'none';
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
                     });
-                });
-                $('select').material_select();
-
-
-                $('.button-collapse').sideNav();
-                $('.dropdown-button').dropdown({
-                    constrainWidth: false,
-                    hover: true,
-                    belowOrigin: true,
-                    alignment: 'left'
-                });
-                $('.scrollspy').scrollSpy();
+                }
+                // Close sidebar if open
+                const sidebar = document.getElementById('sidebar');
+                const overlay = document.getElementById('sidebarOverlay');
+                if (sidebar.style.left === '0px') {
+                    sidebar.style.left = '-250px';
+                    overlay.style.display = 'none';
+                }
             });
-        }, 10000);
+        });
+
     </script>
 </body>
 
