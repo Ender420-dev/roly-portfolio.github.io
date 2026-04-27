@@ -7,8 +7,9 @@
     <!--Import materialize.css-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" href="css/main.css?v=1.1" />
+    <link type="text/css" rel="stylesheet" href="css/main.css?v=1.2" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
     <!--Let browser know website is optimized for mobile-->
@@ -16,44 +17,22 @@
     <title>Roly's Portfolio</title>
 </head>
 
-<body class="bg-dark">
+<body class="bg-black" style="background-color: black;">
 
     <nav id="navbar" class="navbar navbar-light fixed-top   border-bottom px-4 py-2 shadow-sm"
-        style="position:sticky; top:0; z-index:1020; background-color: #212529;">
+        style="position:sticky; top:0; z-index:1020; height: 50px; background-color: #212529;">
         <div class="d-flex w-100 justify-content-between align-items-center">
             <div class="d-flex align-items-center">
-                <button id="toggleSidebarBtn" class="btn text-dark text-white p-2 border-0 me-3">
-                    <i class="bi bi-list" style="font-size: 1.7rem; color: #fff;"></i>
-                </button>
+
                 <h5 class="fw-bold mb-0 text-light">Portfolio</h5>
             </div>
-            <ul class="nav justify-content-end">
-                <li class="nav-item"><a href="#home" class="nav-link text-light">Home</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link text-light">About</a></li>
-                <li class="nav-item"><a href="#projects" class="nav-link text-light">Projects</a></li>
-                <li class="nav-item"><a href="#skills" class="nav-link text-light">Skills</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link text-light">Contact</a></li>
-            </ul>
+
         </div>
     </nav>
 
-    <div id="sidebar" class="sidebar bg-light text-dark position-fixed vh-100"
-        style="width: 250px; left: -250px; top: 0; z-index: 1030; transition: left 0.3s;">
-        <div class="p-3">
-            <button id="closeSidebar" class="btn btn-link text-dark float-end"
-                style="font-size: 1.5rem;">&times;</button>
-            <h5 class="text-dark">Menu</h5>
-            <ul class="list-unstyled mt-3">
-                <li><a href="#home" class="text-dark text-decoration-none d-block py-2">Home</a></li>
-                <li><a href="#about" class="text-dark text-decoration-none d-block py-2">About</a></li>
-                <li><a href="#projects" class="text-dark text-decoration-none d-block py-2">Projects</a></li>
-                <li><a href="#skills" class="text-dark text-decoration-none d-block py-2">Skills</a></li>
-                <li><a href="#contact" class="text-dark text-decoration-none d-block py-2">Contact</a></li>
-            </ul>
-        </div>
-    </div>
 
-    
+
+
     <div class="fab-radial-container">
         <!-- Main toggle button -->
         <button class="main-fab-btn" id="radialMainFab" aria-label="Open circular menu">
@@ -63,180 +42,304 @@
         <!-- Circular positioned menu wrapper -->
         <div class="circular-menu" id="circularMenu">
             <!-- 5 action buttons, will be positioned dynamically in a circle -->
-            <button class="circular-action" data-action="share" data-bs-toggle="tooltip" data-bs-placement="left"
-                title="Share this" aria-label="Share">
-                <i class="bi bi-share-fill"></i>
-            </button>
-            <button class="circular-action" data-action="edit" data-bs-toggle="tooltip" data-bs-placement="left"
-                title="Edit content" aria-label="Edit">
-                <i class="bi bi-pencil-square"></i>
-            </button>
-            <button class="circular-action" data-action="favorite" data-bs-toggle="tooltip" data-bs-placement="left"
-                title="Add to favorites" aria-label="Favorite">
-                <i class="bi bi-heart-fill"></i>
-            </button>
-            <button class="circular-action" data-action="notify" data-bs-toggle="tooltip" data-bs-placement="left"
-                title="Notifications" aria-label="Notifications">
-                <i class="bi bi-bell-fill"></i>
-            </button>
-            <button class="circular-action" data-action="settings" data-bs-toggle="tooltip" data-bs-placement="left"
-                title="Settings" aria-label="Settings">
-                <i class="bi bi-gear-fill"></i>
-            </button>
+            
+            <a href="#projects" class="circular-action text-white" data-action="Projects" data-bs-toggle="tooltip"
+                data-bs-placement="left" title="Projects" aria-label="Projects">
+                <i class="bi bi-folder-fill"></i>
+            </a>
+            <a href="#skills" class="circular-action text-white" data-action="Skills" data-bs-toggle="tooltip"
+                data-bs-placement="left" title="Skills" aria-label="Skills">
+                <i class="bi bi-lightning-fill"></i>
+            </a>
+            <a href="#contact" class="circular-action text-white" data-action="Contact" data-bs-toggle="tooltip"
+                data-bs-placement="left" title="Contact" aria-label="Contact">
+                <i class="bi bi-envelope-fill"></i>
+            </a>
+            <a href="#about" class="circular-action text-white" data-action="About" data-bs-toggle="tooltip"
+                data-bs-placement="left" title="About" aria-label="About">
+                <i class="bi bi-person-fill"></i>
+            </a>
         </div>
     </div>
 
     <div id="sidebarOverlay" class="position-fixed"
         style="top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1025; display:none;"></div>
 
-    <main class="fadein" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="50">
-        <div class="scrollspy" id="home">
-           
-
+    <div class="modal fade" id="projectLightboxModal" tabindex="-1" aria-labelledby="projectLightboxTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content bg-dark border-secondary">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white" id="projectLightboxTitle">Project Preview</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-0">
+                    <img id="projectLightboxImage" src="" alt="Project preview" class="img-fluid w-100">
+                </div>
+            </div>
         </div>
+    </div>
+
+    <main class="fadein" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="10">
+        
         <!-- <div class="row scrollspy" id="home">
            
         </div> -->
-         <section class="section py-5">
-                <div class="row">
-                    <div class="col-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
-                        <div class="container mt-5">
-                            
-                            <h3 class="text-white">Hi, my name is</h3>
-                            <h1 class="text-white">Roly Gatus</h1>
-                            <h4 class="text-white">and I'm a <span class="text-primary"
-                                    id="text"></span><span class="blinking">I</span></h4>
-
-
-                        </div>
-                    </div>
-                </div>
-            </section>
+        
         <section class="linear-grey py-2">
             <div class=" container scrollspy" id="about">
                 <div class="row">
                     <div class="col-12">
-                        <div class=""><br>
+                        <div class="py-3">
+                            <div class="about-panel shadow-lg">
+                                <div class="about-panel__header">
+                                    <div>
+                                        <div class="about-panel__eyebrow">Character Profile</div>
+                                        <h2 class="about-panel__title">About Roly</h2>
+                                    </div>
+                                    <div class="about-panel__signal">
+                                        <i class="bi bi-controller"></i> Online
+                                    </div>
+                                </div>
 
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card mb-3 d-flex linear-grey shadow-lg">
-
-                                        <div class="row">
-                                            <div class="col-4">
+                                <div class="row g-4">
+                                    <div class="col-12 col-lg-4">
+                                        <div class="profile-card">
+                                            <div class="profile-card__frame">
                                                 <img src="img/profile_pic.png" alt="Profile picture of Roly Gatus"
-                                                    class="card-img-left img-fluid rounded-start" style="max-width: 400px;">
+                                                    class="profile-card__image img-fluid">
                                             </div>
-                                            <div class="col-8">
-                                                <div class="card-body">
-                                                    <div class="container">
-                                                        <h2 class="text-white text-center">About Me</h2>
-                                                        <br><br>
-                                                <h4 class="text-white">Hi, I'm Roly.</h4>
-                                                <p class="text-white">I'm a Website Designer and 2D Game Developer based
-                                                    in the Bahay Toro of Quezon City.</p>
-                                                <p class="text-white">I'm <span id="age"></span> years old and I'm a Highschool Graduate of
-                                                    San Francisco Highschool with a strand of TVL-ICT(Computer Program
-                                                    and Animation). And I've coded for four years and have learned a lot
-                                                    of things along
-                                                    the way.
-                                                </p>
-                                                <p class="text-white">I've study Web Designer at TESDA(TWSP) and
-                                                    self-study using Unity 2D Platformer Games.</p>
-                                                <p class="text-white">I am in love with programming as Web Designer, and
-                                                    Game Developer is a way for me to express myself, my talents, and my
-                                                    skills by creating Design and Game Development that many people
-                                                    benefit from my
-                                                    work and enjoy my games.</p>
 
+                                            <div class="profile-card__name">Roly Gatus</div>
+                                            <div class="profile-card__class">
+                                                <span class="text-info" id="text"></span><span class="blinking text-info">|</span>
+                                            </div>
+
+                                            <div class="profile-tags">
+                                                <span class="profile-tag"><i class="bi bi-code-slash"></i> Builder</span>
+                                                <span class="profile-tag"><i class="bi bi-controller"></i> Game Dev</span>
+                                                <span class="profile-tag"><i class="bi bi-window"></i> UI Focus</span>
+                                            </div>
+
+                                            <div class="status-card">
+                                                <div class="status-card__row">
+                                                    <span>Level</span>
+                                                    <strong>2026</strong>
+                                                </div>
+                                                <div class="status-card__row">
+                                                    <span>Base</span>
+                                                    <strong>Quezon City</strong>
+                                                </div>
+                                                <div class="status-card__row">
+                                                    <span>Age</span>
+                                                    <strong><span id="age"></span></strong>
+                                                </div>
+                                                <div class="status-card__row">
+                                                    <span>Class</span>
+                                                    <strong>IT Graduate</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-8">
+                                        <div class="about-grid">
+                                            <div class="about-card about-card--wide">
+                                                <div class="about-card__label">Backstory</div>
+                                                <h3 class="about-card__heading">Web developer with a game builder mindset</h3>
+                                                <p class="about-card__text">
+                                                    Based in Bahay Toro, Quezon City, I build websites and interactive
+                                                    experiences with a strong focus on design, structure, and usability.
+                                                </p>
+                                                <p class="about-card__text">
+                                                    I studied Web Design through TESDA in 2018, continued Web
+                                                    Development in college, and kept expanding my skills through
+                                                    self-study in Unity and 2D game development.
+                                                </p>
+                                                <p class="about-card__text">
+                                                    Programming became the main way I express ideas. From 2021 to 2026,
+                                                    I kept developing as a web developer while exploring game
+                                                    development as a space for creativity, systems thinking, and visual
+                                                    design.
+                                                </p>
+                                            </div>
+
+                                            <div class="about-card">
+                                                <div class="about-card__label">Quest Log</div>
+                                                <div class="quest-list">
+                                                    <div class="quest-item">
+                                                        <span class="quest-item__year">2018</span>
+                                                        <span class="quest-item__text">Studied Web Design at TESDA.</span>
+                                                    </div>
+                                                    <div class="quest-item">
+                                                        <span class="quest-item__year">College</span>
+                                                        <span class="quest-item__text">Completed BS Information Technology at Bestlink College of the Philippines.</span>
+                                                    </div>
+                                                    <div class="quest-item">
+                                                        <span class="quest-item__year">2021-2026</span>
+                                                        <span class="quest-item__text">Focused on web development, UI work, and portfolio projects.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="about-card">
+                                                <div class="about-card__label">Equipped Skills</div>
+                                                <div class="skill-meter">
+                                                    <div class="skill-meter__top"><span>Frontend Development</span><span>88</span></div>
+                                                    <div class="skill-meter__bar"><span style="width: 88%"></span></div>
+                                                </div>
+                                                 <div class="skill-meter">
+                                                    <div class="skill-meter__top"><span>Backend Development</span><span>90</span></div>
+                                                    <div class="skill-meter__bar"><span style="width: 90%"></span></div>
+                                                </div>
+                                                <div class="skill-meter">
+                                                    <div class="skill-meter__top"><span>UI / Visual Design</span><span>80</span></div>
+                                                    <div class="skill-meter__bar"><span style="width: 80%"></span></div>
+                                                </div>
+                                                <div class="skill-meter">
+                                                    <div class="skill-meter__top"><span>JavaScript</span><span>70</span></div>
+                                                    <div class="skill-meter__bar"><span style="width: 70%"></span></div>
+                                                </div>
+                                                <div class="skill-meter">
+                                                    <div class="skill-meter__top"><span>Unity / Game Systems</span><span>45</span></div>
+                                                    <div class="skill-meter__bar"><span style="width: 45%"></span></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="about-card">
+                                                <div class="about-card__label">Current Mission</div>
+                                                <p class="about-card__text mb-0">
+                                                    Build polished web interfaces, ship stronger portfolio work, and
+                                                    turn game development ideas into playable projects with clearer art
+                                                    direction and better systems.
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                </div>
-            </div>
 
-            </div>
+                </div>
         </section>
 
         <section class="linear-grey py-5">
             <div class="row scrollspy" id="projects">
-                <div class="col s12 m12 ">
-                    <div class="">
-
+                <div class="col-12">
+                    <div class="card linear-grey z-depth-4"><br>
+                        <h3 class="white-text center">Projects</h3>
                         <div class="row">
-                            <div class="col s12 m12 l12">
-                                <div class="card linear-grey z-depth-4"><br>
-                                    <h3 class="white-text center">Projects</h3>
-                                    <div class="row">
-                                        <div class="col-12 col-lg-6">
-                                            <h4 class="text-white">Web Design</h4>
-                                            <table class="table table-bordered table-responsive">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="text-white">Project Name</th>
-                                                        <th class="text-white">Release Date</th>
-                                                        <th class="text-white">Link</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th class="text-white">San Francsico High School</th>
-                                                        <th class="text-white">August 13, 2019</th>
-                                                        <th class="text-white"><a
-                                                                href="https://sfhs.netlify.app/index.html"
-                                                                class="btn btn-sm btn-light text-dark">Go To Website</a>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="text-white">Sample Project on TESDA Training</th>
-                                                        <th class="text-white">July 20,2019</th>
-                                                        <th class="text-white">
-                                                            <a href="bizland/index.html"
-                                                                class="btn btn-sm btn-light text-dark">Go To Website</a>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="text-white">Sample Project on TESDA Training(R5 Event
-                                                            Management)</th>
-                                                        <th class="text-white">july 22,2019</th>
-                                                        <th class="text-white"><a
-                                                                href="https://r5eventmanagement.netlify.app/index.html"
-                                                                class="btn btn-sm btn-light text-dark">Go To Website</a>
-                                                        </th>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
+                            <!-- Left: Inventory UI -->
+                            <div class="col-12 col-lg-5">
+                                <h4 class="text-white text-center mb-3"><i class="bi bi-backpack"></i> Inventory</h4>
+                                <div class="inventory-grid" id="projectInventory">
+                                    <!-- Web Design Projects -->
+                                    <div class="inventory-item" data-project="sfhs" data-category="web-design">
+                                        <div class="item-category-badge web-design"><i class="bi bi-palette"></i></div>
+                                        <div class="item-icon">
+                                            <img src="img/projects/sfhs_icon.png" alt="SFHS" class="item-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                                            <i class="bi bi-globe" style="display:none"></i>
                                         </div>
-                                        <div class="col-12 col-lg-6">
-                                            <h4 class="text-white">Game Projects</h4>
-                                            <table class="table table-bordered table-responsive">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="text-white">Project Name</th>
-                                                        <th class="text-white">Release Date</th>
-                                                        <th class="text-white">Genre</th>
-                                                        <th class="text-white">Trailer Link</th>
-                                                        <th class="text-white">Link</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th class="text-white">Coming Soon</th>
-                                                        <th class="text-white">N/A</th>
-                                                        <th class="text-white">2D Platformer/Horror</th>
-                                                        <th><a href="#"
-                                                                class="btn btn-light text-dark disabled">Trailer</a>
-                                                        </th>
-                                                        <th><a href="#"
-                                                                class="btn btn-light text-dark disabled">Link</a></th>
-                                                    </tr>
+                                        <div class="item-name">SFHS</div>
+                                        <div class="item-qty">1</div>
+                                    </div>
+                                    <div class="inventory-item" data-project="bizland" data-category="web-design">
+                                        <div class="item-category-badge web-design"><i class="bi bi-palette"></i></div>
+                                        <div class="item-icon">
+                                            <img src="img/projects/bizland_icon.png" alt="Bizland" class="item-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                                            <i class="bi bi-building" style="display:none"></i>
+                                        </div>
+                                        <div class="item-name">Bizland</div>
+                                        <div class="item-qty">1</div>
+                                    </div>
+                                    <div class="inventory-item" data-project="r5event" data-category="web-design">
+                                        <div class="item-category-badge web-design"><i class="bi bi-palette"></i></div>
+                                        <div class="item-icon">
+                                            <img src="img/projects/r5event_icon.png" alt="R5 Event" class="item-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                                            <i class="bi bi-calendar-event" style="display:none"></i>
+                                        </div>
+                                        <div class="item-name">R5 Event</div>
+                                        <div class="item-qty">1</div>
+                                    </div>
+                                    <!-- Full Stack Web Development Projects -->
+                                    <div class="inventory-item" data-project="fullstack1" data-category="fullstack">
+                                        <div class="item-category-badge fullstack"><i class="bi bi-code-slash"></i></div>
+                                        <div class="item-icon">
+                                            <img src="img/projects/fullstack1_icon.png" alt="Full Stack" class="item-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                                           <i class="bi bi-mortarboard" style="display: none;"></i>
+                                        </div>
+                                        <div class="item-name">Sisreg</div>
+                                        <div class="item-qty">1</div>
+                                    </div>
+                                    <!-- Game Development Projects -->
+                                    <div class="inventory-item" data-project="game1" data-category="game">
+                                        <div class="item-category-badge game"><i class="bi bi-controller"></i></div>
+                                        <div class="item-icon">
+                                            <img src="img/projects/game1_icon.png" alt="Game" class="item-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                                            <i class="bi bi-controller" style="display:none"></i>
+                                        </div>
+                                        <div class="item-name">???</div>
+                                        <div class="item-qty">1</div>
+                                    </div>
+                                </div>
+                                <!-- Category Legend -->
+                                <div class="category-legend mt-2">
+                                    <span class="legend-item"><span class="legend-dot web-design"></span> Web Design</span>
+                                    <span class="legend-item"><span class="legend-dot fullstack"></span> Full Stack</span>
+                                    <span class="legend-item"><span class="legend-dot game"></span> Game Dev</span>
+                                </div>
+                            </div>
+                            <!-- Right: Description Panel -->
+                            <div class="col-12 col-lg-7">
+                                <h4 class="text-white text-center mb-3"><i class="bi bi-scroll"></i> Details</h4>
+                                <div class="project-details-panel" id="projectDetails">
+                                    <!-- Project Image Slider -->
+                                    <div class="details-image mb-3">
+                                        <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner" id="projectCarouselInner">
+                                                <div class="carousel-item active">
+                                                    <div class="project-placeholder-img">
+                                                        <i class="bi bi-image"></i>
+                                                        <p class="text-white">Add project screenshot</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon"></span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="details-header">
+                                        <h5 class="text-white" id="detailTitle">Select an item</h5>
+                                        <span class="badge bg-primary" id="detailCategory"></span>
+                                    </div>
+                                    <div class="details-caption" id="detailCaption">
+                                        <i class="bi bi-chat-left-quote"></i> Click an item from the inventory to view details.
+                                    </div>
+                                    <div class="details-body">
+                                        <p class="text-white" id="detailDescription"></p>
+                                        <div class="details-meta">
+                                            <p class="text-white mb-1"><i class="bi bi-calendar3"></i> <strong>Release Date:</strong> <span id="detailDate">-</span></p>
+                                            <p class="text-white mb-1"><i class="bi bi-tag"></i> <strong>Genre:</strong> <span id="detailGenre">-</span></p>
+                                        </div>
+                                        <div class="details-links" id="detailLinks"></div>
+                                        <!-- Radar Chart for Languages & Tools -->
+                                        <div class="details-chart mt-3">
+                                            <h6 class="text-white"><i class="bi bi-diagram-3"></i> Tech Used</h6>
+                                            <canvas id="projectTechRadar"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -255,53 +358,72 @@
         <section class="linear-grey py-5">
             <div class="row scrollspy" id="skills">
                 <div class="col-12">
-                    <div class="card linear-grey">
-                        <div class="card-content"><br>
-                            <h3 class="text-white text-center">Skills</h3>
-                            <div class="row">
-                                <div class="col-12 col-lg-6">
-                                    <h4 class="text-center text-white">Language</h4>
-                                    <table class="table table-bordered">
-                                        <tbody>
-                                            <tr>
-                                                <th class="text-white">HTML</th>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-white">CSS</th>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-white">Javascript</th>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-white">JQuery</th>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-white">C#</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                    <div class="skills-panel shadow-lg">
+                        <div class="skills-panel__header">
+                            <div>
+                                <div class="skills-panel__eyebrow">Loadout Screen</div>
+                                <h3 class="skills-panel__title">Skills</h3>
+                            </div>
+                            <div class="skills-panel__status">
+                                <i class="bi bi-cpu"></i> Active Build
+                            </div>
+                        </div>
+
+                        <div class="row g-4">
+                            <div class="col-12 col-lg-4">
+                                <div class="skills-sidecard">
+                                    <div class="skills-sidecard__label">Core Build</div>
+                                    <div class="skills-chip-list">
+                                        <span class="skills-chip"><i class="bi bi-filetype-html"></i> HTML</span>
+                                        <span class="skills-chip"><i class="bi bi-filetype-css"></i> CSS</span>
+                                        <span class="skills-chip"><i class="bi bi-filetype-js"></i> JavaScript</span>
+                                        <span class="skills-chip"><i class="bi bi-bootstrap"></i> Bootstrap</span>
+                                        <span class="skills-chip"><i class="bi bi-unity"></i> Unity</span>
+                                        <span class="skills-chip"><i class="bi bi-database"></i> MariaDB</span>
+                                    </div>
+
+                                    <div class="skills-sidecard__label mt-4">Special Traits</div>
+                                    <div class="quest-list">
+                                        <div class="quest-item">
+                                            <span class="quest-item__year">UI</span>
+                                            <span class="quest-item__text">Builds game-inspired layouts and interface-driven pages.</span>
+                                        </div>
+                                        <div class="quest-item">
+                                            <span class="quest-item__year">Code</span>
+                                            <span class="quest-item__text">Comfortable across frontend structure, interaction, and debugging.</span>
+                                        </div>
+                                        <div class="quest-item">
+                                            <span class="quest-item__year">Create</span>
+                                            <span class="quest-item__text">Explores 2D game systems, visuals, and playable concepts.</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-12 col-lg-6">
-                                        <h4 class="text-white text-center">Tools</h4>
-                                        <table class="table table-bordered">
-                                            <tbody>
-                                                <tr>
-                                                    <th class="text-white">Visual Studio Code</th>
-                                                </tr>
-                                                <tr>
-                                                    <th class="text-white">Unity</th>
-                                                </tr>
-                                                <tr>
-                                                    <th class="text-white">Adobe Photoshop</th>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                            </div>
+
+                            <div class="col-12 col-lg-8">
+                                <div class="skills-grid">
+                                    <div class="skills-chart-card">
+                                        <div class="skills-chart-card__header">
+                                            <h4 class="skills-chart-card__title"><i class="bi bi-braces"></i> Language Matrix</h4>
+                                            <span class="skills-chart-card__tag">Primary Stats</span>
+                                        </div>
+                                        <div class="chart-container skills-chart-box">
+                                            <canvas id="languageRadar"></canvas>
+                                        </div>
+                                    </div>
+
+                                    <div class="skills-chart-card">
+                                        <div class="skills-chart-card__header">
+                                            <h4 class="skills-chart-card__title"><i class="bi bi-tools"></i> Tool Arsenal</h4>
+                                            <span class="skills-chart-card__tag">Support Gear</span>
+                                        </div>
+                                        <div class="chart-container skills-chart-box">
+                                            <canvas id="toolsRadar"></canvas>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -409,44 +531,339 @@
     <script src="fab.js"></script>
 
     <script>
-        (function() {
-    // Set birth date: November 27, 2000 (month is 0-indexed, so 10 = November)
-    const birthDate = new Date(2000, 10, 27);
+        // Radar Charts for Skills
+        document.addEventListener('DOMContentLoaded', function() {
+            // Language Radar Chart
+            const languageCtx = document.getElementById('languageRadar').getContext('2d');
+            new Chart(languageCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['HTML', 'CSS', 'Javascript', 'JQuery', 'C#', 'bootstrap', 'Materialize CSS', 'react', 'node.js', 'MariaDB',],
+                    datasets: [{
+                        label: 'Proficiency',
+                        data: [90, 85, 75, 70, 65, 80, 70, 60, 55, 50],
+                        backgroundColor: 'rgba(54, 162, 235, 0.3)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(54, 162, 235, 1)'
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(255, 255, 255, 0.2)' },
+                            grid: { color: 'rgba(255, 255, 255, 0.2)' },
+                            pointLabels: { 
+                                color: '#fff',
+                                font: { size: 14, weight: 'bold' }
+                            },
+                            ticks: { display: false },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
 
-    function calculateAge() {
-      const today = new Date();
-      let years = today.getFullYear() - birthDate.getFullYear();
-      const monthDiff = today.getMonth() - birthDate.getMonth();
-      const dayDiff = today.getDate() - birthDate.getDate();
+            // Tools Radar Chart
+            const toolsCtx = document.getElementById('toolsRadar').getContext('2d');
+            new Chart(toolsCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['VS Code', 'Unity', 'Photoshop', 'Adobe Animate', 'Git/GitHub', 'Netlify', 'Trello', 'Postman', 'XAMPP'],
+                    datasets: [{
+                        label: 'Proficiency',
+                        data: [90, 75, 60, 55, 50, 45, 35, 30, 80],
+                        backgroundColor: 'rgba(75, 192, 192, 0.3)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 3,
+                        pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(75, 192, 192, 1)'
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(255, 255, 255, 0.2)' },
+                            grid: { color: 'rgba(255, 255, 255, 0.2)' },
+                            pointLabels: { 
+                                color: '#fff',
+                                font: { size: 14, weight: 'bold' }
+                            },
+                            ticks: { display: false },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
 
-      // Adjust if birthday hasn't occurred yet this year
-      if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
-        years--;
-      }
+            // Project Inventory System
+            const projectData = {
+                sfhs: {
+                    title: 'San Francisco High School',
+                    category: 'Web Design',
+                    caption: 'Official school website for SFHS',
+                    description: 'A responsive school website featuring information about courses, faculty, and student activities. Built with modern web technologies.',
+                    date: 'August 13, 2019',
+                    genre: 'Educational Website',
+                    link: 'https://sfhs.netlify.app/index.html',
+                    images: ['img/projects/sfhs_1.png', 'img/projects/sfhs_2.png'],
+                    tech: { labels: ['HTML', 'CSS', 'JavaScript', 'Materialize CSS'], data: [95, 90, 70, 80] }
+                },
+                bizland: {
+                    title: 'Bizland',
+                    category: 'Web Design',
+                    caption: 'Business landing page template',
+                    description: 'A professional business landing page created during TESDA training. Features modern design with service showcases.',
+                    date: 'July 20, 2019',
+                    genre: 'Business Website',
+                    link: 'bizland/index.html',
+                    images: ['img/projects/bizland_1.png', 'img/projects/bizland_2.png'],
+                    tech: { labels: ['HTML', 'CSS', 'Materialize CSS'], data: [90, 85, 85] }
+                },
+                r5event: {
+                    title: 'R5 Event Management',
+                    category: 'Web Design',
+                    caption: 'Event management company website',
+                    description: 'A sleek event management website for R5 Events. Includes event showcase, booking forms, and contact information.',
+                    date: 'July 22, 2019',
+                    genre: 'Event Website',
+                    link: 'https://r5eventmanagement.netlify.app/index.html',
+                    images: ['img/projects/r5event_1.png', 'img/projects/r5event_2.png'],
+                    tech: { labels: ['HTML', 'CSS', 'JavaScript', 'Materialize CSS'], data: [85, 80, 65, 85] }
+                },
+                fullstack1: {
+                    title: 'School Management System: Registrar Portal',
+                    category: 'Full Stack Web Development',
+                    caption: 'Coming Soon',
+                    description: 'A full stack web application for the School Registrar Portal. This project is currently in development and will feature student management, course scheduling, and administrative tools. This project is for School Purposes only for CAPSTONE 2, and will not be published until the project is finished.',
+                    date: 'TBA',
+                    genre: 'Full Stack Web App',
+                    link: null,
+                    images: [
+                        'img/sisreg/acad.png',
+                        'img/sisreg/account.png',
+                        'img/sisreg/dashboard.png',
+                        'img/sisreg/docreq.png',
+                        'img/sisreg/filestorage.png',
+                        'img/sisreg/guardian.png',
+                        'img/sisreg/health.png',
+                        'img/sisreg/home.png',
+                        'img/sisreg/idgen.png',
+                        'img/sisreg/masterlistgen.png',
+                        'img/sisreg/otp.png',
+                        'img/sisreg/rfid.png',
+                        'img/sisreg/student.png',
+                        'img/sisreg/studenttrack.png'
+                    ],
+                    tech: { labels: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'PHP', 'MySQL'], data: [70, 65, 60, 55, 50, 45] }
+                },
+                game1: {
+                    title: 'Untitled Game',
+                    category: 'Game Project',
+                    caption: 'Upcoming 2D Platformer/Horror',
+                    description: 'An original 2D platformer horror game currently in development. More details to be announced.',
+                    date: 'TBA',
+                    genre: '2D Platformer/Horror',
+                    link: null,
+                    images: ['img/projects/game1_1.png'],
+                    tech: { labels: ['Unity', 'C#', 'Adobe Photoshop', 'Adobe Animation'], data: [60, 55, 50, 45] }
+                }
+            };
 
-      return years;
-    }
+            let projectTechChart = null;
 
-    function updateAge() {
-      const ageSpan = document.getElementById('age');
-      if (ageSpan) {
-        ageSpan.textContent = calculateAge();
-      }
-    }
+            function selectProject(projectId) {
+                const data = projectData[projectId];
+                if (!data) return;
 
-    // Run immediately
-    updateAge();
+                // Get category from the clicked item
+                const clickedItem = document.querySelector(`.inventory-item[data-project="${projectId}"]`);
+                const category = clickedItem ? clickedItem.dataset.category : data.category;
 
-    // Optional: update automatically at midnight or when needed
-    // Calculate milliseconds until next midnight to update precisely
-    const now = new Date();
-    const msUntilMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1) - now;
-    setTimeout(() => {
-      updateAge();
-      // Then update once per day
-      setInterval(updateAge, 86400000);
-    }, msUntilMidnight);
-  })();
+                // Update UI
+                document.getElementById('detailTitle').textContent = data.title;
+                
+                // Update category badge with color based on type
+                const categoryBadge = document.getElementById('detailCategory');
+                let categoryText, categoryClass;
+                if (category === 'web-design') {
+                    categoryText = '🎨 Web Design';
+                    categoryClass = 'badge';
+                    categoryBadge.style.backgroundColor = '#8b5cf6';
+                } else if (category === 'fullstack') {
+                    categoryText = '💻 Full Stack';
+                    categoryClass = 'badge';
+                    categoryBadge.style.backgroundColor = '#10b981';
+                } else if (category === 'game') {
+                    categoryText = '🎮 Game Dev';
+                    categoryClass = 'badge';
+                    categoryBadge.style.backgroundColor = '#ef4444';
+                } else {
+                    categoryText = category;
+                    categoryClass = 'badge bg-secondary';
+                }
+                categoryBadge.textContent = categoryText;
+                categoryBadge.className = categoryClass;
+                
+                document.getElementById('detailCaption').textContent = data.caption;
+                document.getElementById('detailDescription').textContent = data.description;
+                document.getElementById('detailDate').textContent = data.date;
+                document.getElementById('detailGenre').textContent = data.genre;
+
+                // Update carousel with project images
+                const carouselInner = document.getElementById('projectCarouselInner');
+                if (data.images && data.images.length > 0) {
+                    carouselInner.innerHTML = data.images.map((img, index) => `
+                        <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                            <img src="${img}" class="d-block w-100 project-lightbox-trigger" alt="${data.title} screenshot" data-project-title="${data.title}" style="cursor: zoom-in;" onerror="this.parentElement.innerHTML='<div class=\\'project-placeholder-img\\'><i class=\\'bi bi-image\\'></i><p class=\\'text-white\\'>Image not found</p></div>'">
+                        </div>
+                    `).join('');
+                } else {
+                    carouselInner.innerHTML = `
+                        <div class="carousel-item active">
+                            <div class="project-placeholder-img">
+                                <i class="bi bi-image"></i>
+                                <p class="text-white">No images available</p>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // Update links
+                const linksContainer = document.getElementById('detailLinks');
+                if (data.link) {
+                    linksContainer.innerHTML = `<a href="${data.link}" target="_blank" class="btn btn-info btn-sm"><i class="bi bi-box-arrow-up-right"></i> View Project</a>`;
+                } else {
+                    linksContainer.innerHTML = `<span class="badge bg-warning text-dark"><i class="bi bi-hourglass-split"></i> Coming Soon</span>`;
+                }
+
+                // Update selected state
+                document.querySelectorAll('.inventory-item').forEach(item => {
+                    item.classList.remove('selected');
+                    if (item.dataset.project === projectId) {
+                        item.classList.add('selected');
+                    }
+                });
+
+                // Update radar chart (smaller size)
+                const ctx = document.getElementById('projectTechRadar').getContext('2d');
+                if (projectTechChart) {
+                    projectTechChart.destroy();
+                }
+                projectTechChart = new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: data.tech.labels,
+                        datasets: [{
+                            label: 'Tech Used',
+                            data: data.tech.data,
+                            backgroundColor: 'rgba(0, 225, 255, 0.25)',
+                            borderColor: '#00CCFF',
+                            borderWidth: 2,
+                            pointBackgroundColor: '#00FFFF',
+                            pointBorderColor: '#fff',
+                            pointRadius: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        scales: {
+                            r: {
+                                angleLines: { color: 'rgba(255, 255, 255, 0.15)' },
+                                grid: { color: 'rgba(255, 255, 255, 0.15)' },
+                                pointLabels: { color: '#00E1FF', font: { size: 10, weight: 'bold' } },
+                                ticks: { display: false, stepSize: 25 },
+                                suggestedMin: 0,
+                                suggestedMax: 100
+                            }
+                        },
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            }
+
+            // Add click handlers to inventory items
+            document.querySelectorAll('.inventory-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    selectProject(item.dataset.project);
+                });
+            });
+
+            const lightboxModalElement = document.getElementById('projectLightboxModal');
+            const lightboxImage = document.getElementById('projectLightboxImage');
+            const lightboxTitle = document.getElementById('projectLightboxTitle');
+            const projectLightbox = new bootstrap.Modal(lightboxModalElement);
+
+            document.addEventListener('click', function (event) {
+                const trigger = event.target.closest('.project-lightbox-trigger');
+                if (!trigger) return;
+
+                lightboxImage.src = trigger.src;
+                lightboxImage.alt = trigger.alt;
+                lightboxTitle.textContent = trigger.dataset.projectTitle || 'Project Preview';
+                projectLightbox.show();
+            });
+
+            lightboxModalElement.addEventListener('hidden.bs.modal', function () {
+                lightboxImage.src = '';
+                lightboxImage.alt = 'Project preview';
+            });
+
+            selectProject('sfhs');
+        });
+
+        (function () {
+            // Set birth date: November 27, 2000 (month is 0-indexed, so 10 = November)
+            const birthDate = new Date(2000, 10, 27);
+
+            function calculateAge() {
+                const today = new Date();
+                let years = today.getFullYear() - birthDate.getFullYear();
+                const monthDiff = today.getMonth() - birthDate.getMonth();
+                const dayDiff = today.getDate() - birthDate.getDate();
+
+                // Adjust if birthday hasn't occurred yet this year
+                if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+                    years--;
+                }
+
+                return years;
+            }
+
+            function updateAge() {
+                const ageSpan = document.getElementById('age');
+                if (ageSpan) {
+                    ageSpan.textContent = calculateAge();
+                }
+            }
+
+            // Run immediately
+            updateAge();
+
+            // Optional: update automatically at midnight or when needed
+            // Calculate milliseconds until next midnight to update precisely
+            const now = new Date();
+            const msUntilMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1) - now;
+            setTimeout(() => {
+                updateAge();
+                // Then update once per day
+                setInterval(updateAge, 86400000);
+            }, msUntilMidnight);
+        })();
         document.getElementById('toggleSidebarBtn').addEventListener('click', function () {
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('sidebarOverlay');

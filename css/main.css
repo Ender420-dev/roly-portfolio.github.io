@@ -1,6 +1,799 @@
-a.hover-button:hover {
-    background-color: grey;
-    color: #5bc3f7;
+/* ============================================
+   ABOUT PANEL - CHARACTER SCREEN
+   ============================================ */
+
+.about-panel {
+    background:
+        linear-gradient(rgba(14, 18, 27, 0.98), rgba(14, 18, 27, 0.98)),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 5px);
+    border: 3px solid #4a5568;
+    border-radius: 6px;
+    padding: 20px;
+    box-shadow:
+        inset 0 0 30px rgba(0, 0, 0, 0.5),
+        0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.about-panel__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid rgba(91, 195, 247, 0.25);
+}
+
+.about-panel__eyebrow,
+.about-card__label {
+    font-family: 'Courier New', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #7dd3fc;
+}
+
+.about-panel__title {
+    margin: 4px 0 0;
+    color: #f8fafc;
+    font-family: 'Courier New', monospace;
+    font-size: 1.9rem;
+    text-shadow: 0 0 16px rgba(0, 195, 255, 0.18);
+}
+
+.about-panel__signal {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid rgba(34, 197, 94, 0.45);
+    background: rgba(34, 197, 94, 0.12);
+    color: #86efac;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.82rem;
+}
+
+.profile-card,
+.about-card {
+    background: linear-gradient(180deg, rgba(26, 32, 44, 0.96) 0%, rgba(15, 23, 42, 0.98) 100%);
+    border: 2px solid #334155;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.profile-card {
+    padding: 16px;
+    height: 100%;
+}
+
+.profile-card__frame {
+    padding: 10px;
+    background:
+        linear-gradient(135deg, rgba(14, 165, 233, 0.18), rgba(59, 130, 246, 0.08)),
+        #0f172a;
+    border: 2px solid #475569;
+    border-radius: 4px;
+    margin-bottom: 14px;
+}
+
+.profile-card__image {
+    width: 100%;
+    display: block;
+    border-radius: 2px;
+    border: 2px solid #0f172a;
+    object-fit: cover;
+}
+
+.profile-card__name {
+    color: #f8fafc;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.profile-card__class {
+    margin-top: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+    min-height: 24px;
+}
+
+.profile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.profile-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(14, 165, 233, 0.25);
+    background: rgba(14, 165, 233, 0.08);
+    color: #e2e8f0;
+    font-size: 0.78rem;
+}
+
+.status-card {
+    margin-top: 16px;
+    padding: 10px 12px;
+    background: rgba(2, 6, 23, 0.75);
+    border: 1px solid #334155;
+    border-radius: 4px;
+}
+
+.status-card__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+    color: #cbd5e1;
+    font-family: 'Courier New', monospace;
+    font-size: 0.86rem;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.status-card__row:last-child {
+    border-bottom: 0;
+}
+
+.status-card__row strong {
+    color: #f8fafc;
+    text-align: right;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.about-card {
+    padding: 16px;
+}
+
+.about-card--wide {
+    grid-column: 1 / -1;
+}
+
+.about-card__heading {
+    margin: 8px 0 12px;
+    color: #f8fafc;
+    font-size: 1.35rem;
+}
+
+.about-card__text {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 12px;
+}
+
+.quest-list {
+    display: grid;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.quest-item {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
+    padding: 10px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid #334155;
+    border-radius: 4px;
+}
+
+.quest-item__year {
+    color: #7dd3fc;
+    font-family: 'Courier New', monospace;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+}
+
+.quest-item__text {
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.skill-meter {
+    margin-top: 12px;
+}
+
+.skill-meter__top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 6px;
+    color: #e2e8f0;
+    font-size: 0.86rem;
+    font-family: 'Courier New', monospace;
+}
+
+.skill-meter__bar {
+    height: 12px;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid #334155;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.skill-meter__bar span {
+    display: block;
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #0ea5e9 0%, #38bdf8 55%, #67e8f9 100%);
+    box-shadow: 0 0 12px rgba(14, 165, 233, 0.45);
+}
+
+/* ============================================
+   SKILLS PANEL - LOADOUT SCREEN
+   ============================================ */
+
+.skills-panel {
+    background:
+        linear-gradient(rgba(14, 18, 27, 0.98), rgba(14, 18, 27, 0.98)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 6px);
+    border: 3px solid #4a5568;
+    border-radius: 6px;
+    padding: 20px;
+    box-shadow:
+        inset 0 0 30px rgba(0, 0, 0, 0.45),
+        0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.skills-panel__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid rgba(91, 195, 247, 0.25);
+}
+
+.skills-panel__eyebrow {
+    font-family: 'Courier New', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #7dd3fc;
+}
+
+.skills-panel__title {
+    margin: 4px 0 0;
+    color: #f8fafc;
+    font-family: 'Courier New', monospace;
+    font-size: 1.9rem;
+    text-shadow: 0 0 16px rgba(0, 195, 255, 0.18);
+}
+
+.skills-panel__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid rgba(14, 165, 233, 0.35);
+    background: rgba(14, 165, 233, 0.12);
+    color: #bae6fd;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.82rem;
+}
+
+.skills-sidecard,
+.skills-chart-card {
+    background: linear-gradient(180deg, rgba(26, 32, 44, 0.96) 0%, rgba(15, 23, 42, 0.98) 100%);
+    border: 2px solid #334155;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.skills-sidecard {
+    padding: 16px;
+    height: 100%;
+}
+
+.skills-sidecard__label {
+    font-family: 'Courier New', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: #7dd3fc;
+    margin-bottom: 10px;
+}
+
+.skills-chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skills-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    border: 1px solid rgba(14, 165, 233, 0.22);
+    background: rgba(14, 165, 233, 0.08);
+    color: #e2e8f0;
+    font-size: 0.8rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.skills-chart-card {
+    padding: 16px;
+}
+
+.skills-chart-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.skills-chart-card__title {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 1rem;
+    font-family: 'Courier New', monospace;
+}
+
+.skills-chart-card__title i {
+    color: #38bdf8;
+}
+
+.skills-chart-card__tag {
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    color: #bae6fd;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.skills-chart-box {
+    position: relative;
+    height: 320px;
+    width: 100%;
+    padding: 10px;
+    background: rgba(2, 6, 23, 0.55);
+    border: 1px solid #334155;
+    border-radius: 4px;
+}
+
+@media (max-width: 991px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-panel__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-panel__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-panel {
+        padding: 14px;
+    }
+
+    .about-panel__title {
+        font-size: 1.5rem;
+    }
+
+    .profile-card__name {
+        font-size: 1.25rem;
+    }
+
+    .quest-item {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-panel {
+        padding: 14px;
+    }
+
+    .skills-panel__title {
+        font-size: 1.5rem;
+    }
+
+    .skills-chart-card__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .skills-chart-box {
+        height: 280px;
+    }
+}
+
+/* ============================================
+   GAME-STYLE INVENTORY UI STYLES
+   ============================================ */
+
+/* Category Badge on Inventory Items */
+.inventory-item .item-category-badge {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    z-index: 2;
+}
+
+.inventory-item .item-category-badge.web-design {
+    background: #8b5cf6;
+    border: 2px solid #a78bfa;
+    color: #fff;
+}
+
+.inventory-item .item-category-badge.fullstack {
+    background: #10b981;
+    border: 2px solid #34d399;
+    color: #fff;
+}
+
+.inventory-item .item-category-badge.game {
+    background: #ef4444;
+    border: 2px solid #f87171;
+    color: #fff;
+}
+
+/* Category Legend */
+.category-legend {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    font-size: 0.7rem;
+    flex-wrap: wrap;
+}
+
+.category-legend .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #a0aec0;
+}
+
+.category-legend .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid;
+}
+
+.category-legend .legend-dot.web-design {
+    background: #8b5cf6;
+    border-color: #a78bfa;
+}
+
+.category-legend .legend-dot.fullstack {
+    background: #10b981;
+    border-color: #34d399;
+}
+
+.category-legend .legend-dot.game {
+    background: #ef4444;
+    border-color: #f87171;
+}
+
+.category-legend .legend-dot.game {
+    background: #ef4444;
+    border-color: #f87171;
+}
+
+/* Inventory Grid - Game Slot Style */
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 8px;
+    padding: 12px;
+    background: 
+        linear-gradient(rgba(20, 25, 35, 0.95), rgba(20, 25, 35, 0.95)),
+        repeating-linear-gradient(45deg, #1a1a2e 0px, #1a1a2e 2px, #16213e 2px, #16213e 4px);
+    border: 3px solid #4a5568;
+    border-radius: 4px;
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.5),
+        0 0 10px rgba(0, 0, 0, 0.3);
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+/* Scrollbar styling for inventory */
+.inventory-grid::-webkit-scrollbar {
+    width: 8px;
+}
+.inventory-grid::-webkit-scrollbar-track {
+    background: #1a1a2e;
+}
+.inventory-grid::-webkit-scrollbar-thumb {
+    background: #4a5568;
+    border-radius: 4px;
+}
+
+/* Inventory Item - Game Item Slot */
+.inventory-item {
+    position: relative;
+    background: linear-gradient(180deg, #2d3748 0%, #1a202c 100%);
+    border: 2px solid #4a5568;
+    border-radius: 4px;
+    padding: 8px 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.15s ease;
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.inventory-item:hover {
+    border-color: #0099ff;
+    transform: translateY(-2px);
+    box-shadow: 
+        0 0 15px rgba(1, 167, 243, 0.89),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.inventory-item.selected {
+    border-color: #00c3ff;
+    background: linear-gradient(180deg, #4a5568 0%, #2d3748 100%);
+    box-shadow: 
+        0 0 20px rgb(0, 255, 255),
+        inset 0 0 10px rgba(255, 215, 0, 0.2);
+    animation: selectedPulse 1.5s infinite;
+}
+
+@keyframes selectedPulse {
+    0%, 100% { box-shadow: 0 0 15px rgba(0, 174, 255, 0.5); }
+    50% { box-shadow: 0 0 25px rgb(0, 204, 255); }
+}
+
+/* Item Icon/Image */
+.inventory-item .item-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inventory-item .item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.inventory-item .item-icon i {
+    font-size: 1.8rem;
+    color: #0099ff;
+    filter: drop-shadow(0 0 3px rgba(2, 162, 255, 0.5));
+}
+
+/* Item Name */
+.inventory-item .item-name {
+    font-size: 0.65rem;
+    color: #e2e8f0;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Item Quantity Badge */
+.inventory-item .item-qty {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 0.6rem;
+    color: #0099ff;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #000;
+}
+
+/* ============================================
+   PROJECT DETAILS PANEL - GAME STYLE
+   ============================================ */
+
+.project-details-panel {
+    background: 
+        linear-gradient(rgba(20, 25, 35, 0.98), rgba(20, 25, 35, 0.98)),
+        repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(255,255,255,0.02) 2px, rgba(255,255,255,0.02) 4px);
+    border: 3px solid #4a5568;
+    border-radius: 4px;
+    padding: 15px;
+    min-height: 350px;
+    box-shadow: 
+        inset 0 0 30px rgba(0, 0, 0, 0.5),
+        0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Details Image / Carousel */
+.project-details-panel .details-image {
+    border: 2px solid #4a5568;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #0d0d15;
+}
+
+.project-details-panel .carousel {
+    max-height: 280px;
+}
+
+.project-details-panel .carousel-inner {
+    max-height: 280px;
+}
+
+.project-placeholder-img {
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border: 2px dashed #4a5568;
+}
+
+.project-placeholder-img i {
+    font-size: 3rem;
+    color: #4a5568;
+}
+
+.project-placeholder-img p {
+    font-size: 0.8rem;
+    margin-top: 10px;
+    opacity: 0.7;
+}
+
+.project-details-panel .carousel-control-prev-icon,
+.project-details-panel .carousel-control-next-icon {
+    filter: invert(1);
+}
+
+/* Details Header */
+.project-details-panel .details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #4a5568;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 8px 10px;
+    border-radius: 4px;
+}
+
+.project-details-panel .details-header h5 {
+    font-family: 'Courier New', monospace;
+    color: #0099ff !important;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    font-size: 1rem;
+}
+
+.project-details-panel .details-header .badge {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Details Caption - Quest Style */
+.project-details-panel .details-caption {
+    font-style: italic;
+    color: #a0aec0;
+    margin-bottom: 15px;
+    padding: 10px 12px;
+    background: rgba(74, 85, 104, 0.2);
+    border-left: 3px solid #0099ff;
+    border-radius: 0 4px 4px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+}
+
+/* Details Body */
+.project-details-panel .details-body {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #2d3748;
+}
+
+.project-details-panel .details-body p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.project-details-panel .details-meta {
+    margin: 12px 0;
+    padding: 10px;
+    background: rgba(26, 32, 44, 0.8);
+    border-radius: 4px;
+    border: 1px solid #2d3748;
+}
+
+.project-details-panel .details-meta p {
+    font-size: 0.85rem;
+    font-family: 'Courier New', monospace;
+}
+
+.project-details-panel .details-meta i {
+    color: #0099ff;
+    margin-right: 5px;
+}
+
+.project-details-panel .details-links {
+    margin-top: 12px;
+}
+
+/* Tech Radar Chart - Smaller */
+.project-details-panel .details-chart {
+    border-top: 2px solid #4a5568;
+    padding-top: 12px;
+    margin-top: 12px;
+}
+
+.project-details-panel .details-chart h6 {
+    color: #0099ff !important;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.project-details-panel #projectTechRadar {
+    max-height: 150px !important;
+}
+
+
+.project-details-panel .details-links {
+    margin-top: 15px;
+}
+
+.project-details-panel .details-chart {
+    border-top: 1px solid #444;
+    padding-top: 15px;
+}
+
+.project-details-panel .details-chart h6 {
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .waves-effect.waves-dark .waves-ripple {
@@ -133,7 +926,7 @@ nav{
       align-items: center;
       justify-content: center;
       font-size: 1.5rem;
-      color: #1f2e3e;
+      color: #1f2e3e !important;
       transition: all 0.25s ease;
       cursor: pointer;
       pointer-events: none;
@@ -153,11 +946,11 @@ nav{
     }
 
     /* Individual hover effects */
-    .circular-action[data-action="share"]:hover { background: #e9f2ff; color: #0d6efd; transform: scale(1.08) !important; }
-    .circular-action[data-action="edit"]:hover { background: #fff4e6; color: #fd7e14; transform: scale(1.08) !important; }
-    .circular-action[data-action="favorite"]:hover { background: #ffeef2; color: #dc3545; transform: scale(1.08) !important; }
-    .circular-action[data-action="notify"]:hover { background: #e6f7ef; color: #198754; transform: scale(1.08) !important; }
-    .circular-action[data-action="settings"]:hover { background: #f1efff; color: #6f42c1; transform: scale(1.08) !important; }
+    .circular-action[data-action="Home"]:hover { background: #e9f2ff; color: #0d6efd; transform: scale(1.08) !important; }
+    .circular-action[data-action="Projects"]:hover { background: #fff4e6; color: #fd7e14; transform: scale(1.08) !important; }
+    .circular-action[data-action="Skills"]:hover { background: #ffeef2; color: #dc3545; transform: scale(1.08) !important; }
+    .circular-action[data-action="Contact"]:hover { background: #e6f7ef; color: #198754; transform: scale(1.08) !important; }
+    .circular-action[data-action="About"]:hover { background: #f1efff; color: #6f42c1; transform: scale(1.08) !important; }
 
     .circular-action:active {
       transform: scale(0.94) !important;

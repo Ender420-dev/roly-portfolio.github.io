@@ -200,15 +200,22 @@
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
+        
+        // Get the target href from the button
+        const targetId = btn.getAttribute('href');
+        const target = document.querySelector(targetId);
+        
+        if (target) {
+          // Smooth scroll to target
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Close the menu after clicking
+        closeMenu();
+        
+        // Optional: show feedback message
         const action = btn.getAttribute('data-action');
-        const msg = actionMessages[action] || `${action} action clicked`;
-        showFloatingMessage(msg);
-        // subtle micro animation
-        btn.style.transform = 'scale(0.92)';
-        setTimeout(() => { if (btn) btn.style.transform = ''; }, 120);
-        // optional: close menu after click? typical pattern can either keep open or close. For better UX we keep open but can also close after 0.5? Not necessary.
-        // Some users might want to close after action: but spec didn't demand, we keep open until click outside or toggle.
-        console.log(`Circular FAB clicked: ${action}`);
+        console.log(`Circular FAB clicked: ${action} -> scrolling to ${targetId}`);
       });
     });
     
