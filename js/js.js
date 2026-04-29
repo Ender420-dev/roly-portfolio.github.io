@@ -148,6 +148,25 @@
         updatePhilippineTime();
         setInterval(updatePhilippineTime, 60000);
 
+        // ============= AGE CALCULATION =============
+        function calculateAge() {
+            const birthDate = new Date('2000-01-01'); // Replace with actual birth date
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            const ageElement = document.getElementById('age');
+            if (ageElement) {
+                ageElement.textContent = age;
+            }
+        }
+
+        calculateAge();
+
         // ============= LOADER FUNCTIONALITY =============
         const loader = document.getElementById("loader");
 

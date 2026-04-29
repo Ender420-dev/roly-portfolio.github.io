@@ -1,0 +1,20 @@
+{
+  "education": {
+    "degree": "Bachelor of Science in Information Technology",
+    "university": "XYZ University",
+    "graduationYear": "2023",
+    "gpa": "3.5/4.0",
+    "relevantCoursework": [
+      "Data Structures and Algorithms",
+      "Database Management Systems",
+      "Web Development",
+      "Software Engineering",
+      "Operating Systems"
+    ],
+    "academicAchievements": [
+      "Dean's List (4 semesters)",
+      "Best Capstone Project Award",
+      "Scholarship for Academic Excellence"
+    ]
+  }
+}

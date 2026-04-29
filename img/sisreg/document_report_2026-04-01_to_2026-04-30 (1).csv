@@ -1,0 +1,13 @@
+﻿"DOCUMENT REPORT - SUMMARY"
+"Date Range:",04/01/2026,to,04/30/2026
+Generated:,"04/29/2026 03:09:46"
+
+"SUMMARY STATISTICS"
+Metric,Value
+<br />
+<b>Fatal error</b>:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'delayed,
+        SUM(CASE WHEN status = 'Cancelled' THEN 1 ELSE 0 END) as ca...' at line 3 in C:\xampp\htdocs\mis4\admin\report\export_report.php:112
+Stack trace:
+#0 C:\xampp\htdocs\mis4\admin\report\export_report.php(112): mysqli-&gt;query('SELECT \r\n      ...')
+#1 {main}
+  thrown in <b>C:\xampp\htdocs\mis4\admin\report\export_report.php</b> on line <b>112</b><br />

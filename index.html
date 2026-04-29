@@ -17,7 +17,7 @@
     <title>Roly's Portfolio</title>
 </head>
 
-<body class="bg-black" style="background-color: black;">
+<body class="bg-black" style="background-color: #0a0a0f;">
 
     <nav id="navbar" class="navbar navbar-light fixed-top   border-bottom px-4 py-2 shadow-sm"
         style="position:sticky; top:0; z-index:1020; height: 50px; background-color: #212529;">
@@ -36,28 +36,28 @@
     <div class="fab-radial-container">
         <!-- Main toggle button -->
         <button class="main-fab-btn" id="radialMainFab" aria-label="Open circular menu">
-            <i class="bi bi-plus-lg"></i>
+            <i class="bi bi-list"></i>
         </button>
 
         <!-- Circular positioned menu wrapper -->
         <div class="circular-menu" id="circularMenu">
             <!-- 5 action buttons, will be positioned dynamically in a circle -->
-            
+
             <a href="#projects" class="circular-action text-white" data-action="Projects" data-bs-toggle="tooltip"
                 data-bs-placement="left" title="Projects" aria-label="Projects">
-                <i class="bi bi-folder-fill"></i>
+                <i class="bi bi-briefcase-fill"></i>
             </a>
             <a href="#skills" class="circular-action text-white" data-action="Skills" data-bs-toggle="tooltip"
                 data-bs-placement="left" title="Skills" aria-label="Skills">
-                <i class="bi bi-lightning-fill"></i>
+                <i class="bi bi-gem"></i>
             </a>
             <a href="#contact" class="circular-action text-white" data-action="Contact" data-bs-toggle="tooltip"
                 data-bs-placement="left" title="Contact" aria-label="Contact">
-                <i class="bi bi-envelope-fill"></i>
+                <i class="bi bi-rss"></i>
             </a>
             <a href="#about" class="circular-action text-white" data-action="About" data-bs-toggle="tooltip"
                 data-bs-placement="left" title="About" aria-label="About">
-                <i class="bi bi-person-fill"></i>
+                <i class="bi bi-person-badge-fill"></i>
             </a>
         </div>
     </div>
@@ -82,60 +82,63 @@
     </div>
 
     <main class="fadein" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="10">
-        
+
         <!-- <div class="row scrollspy" id="home">
            
         </div> -->
-        
-        <section class="linear-grey py-2">
+
+        <section class="cyber-section py-2">
             <div class=" container scrollspy" id="about">
                 <div class="row">
                     <div class="col-12">
                         <div class="py-3">
-                            <div class="about-panel shadow-lg">
-                                <div class="about-panel__header">
+                            <div class="cyber-section-card">
+                                <div class="cyber-section-card__header">
                                     <div>
-                                        <div class="about-panel__eyebrow">Character Profile</div>
-                                        <h2 class="about-panel__title">About Roly</h2>
+                                        <div class="cyber-section-card__eyebrow">Character Profile</div>
+                                        <h2 class="cyber-section-title">About Roly</h2>
                                     </div>
-                                    <div class="about-panel__signal">
+                                    <div class="cyber-section-card__signal">
                                         <i class="bi bi-controller"></i> Online
                                     </div>
                                 </div>
 
                                 <div class="row g-4">
                                     <div class="col-12 col-lg-4">
-                                        <div class="profile-card">
-                                            <div class="profile-card__frame">
+                                        <div class="cyber-profile-card">
+                                            <div class="cyber-profile-card__frame">
                                                 <img src="img/profile_pic.png" alt="Profile picture of Roly Gatus"
-                                                    class="profile-card__image img-fluid">
+                                                    class="cyber-profile-card__image img-fluid">
                                             </div>
 
-                                            <div class="profile-card__name">Roly Gatus</div>
-                                            <div class="profile-card__class">
-                                                <span class="text-info" id="text"></span><span class="blinking text-info">|</span>
+                                            <div class="cyber-profile-card__name">Roly Gatus</div>
+                                            <div class="cyber-profile-card__class">
+                                                <span class="text-info" id="text"></span><span
+                                                    class="blinking text-info">|</span>
                                             </div>
 
-                                            <div class="profile-tags">
-                                                <span class="profile-tag"><i class="bi bi-code-slash"></i> Builder</span>
-                                                <span class="profile-tag"><i class="bi bi-controller"></i> Game Dev</span>
-                                                <span class="profile-tag"><i class="bi bi-window"></i> UI Focus</span>
+                                            <div class="cyber-profile-tags">
+                                                <span class="cyber-profile-tag"><i class="bi bi-code-slash"></i>
+                                                    Builder</span>
+                                                <span class="cyber-profile-tag"><i class="bi bi-controller"></i> Game
+                                                    Dev</span>
+                                                <span class="cyber-profile-tag"><i class="bi bi-window"></i> UI Focus</span>
                                             </div>
 
-                                            <div class="status-card">
-                                                <div class="status-card__row">
+                                            <div class="cyber-status-card">
+                                                <div class="cyber-status-card__row">
                                                     <span>Level</span>
                                                     <strong>2026</strong>
                                                 </div>
-                                                <div class="status-card__row">
+                                                <div class="cyber-status-card__row">
                                                     <span>Base</span>
                                                     <strong>Quezon City</strong>
                                                 </div>
-                                                <div class="status-card__row">
+                                                <div class="cyber-status-card__row">
                                                     <span>Age</span>
                                                     <strong><span id="age"></span></strong>
                                                 </div>
-                                                <div class="status-card__row">
+                                                <div class="cyber-status-card__row">
                                                     <span>Class</span>
                                                     <strong>IT Graduate</strong>
                                                 </div>
@@ -144,20 +147,21 @@
                                     </div>
 
                                     <div class="col-12 col-lg-8">
-                                        <div class="about-grid">
-                                            <div class="about-card about-card--wide">
-                                                <div class="about-card__label">Backstory</div>
-                                                <h3 class="about-card__heading">Web developer with a game builder mindset</h3>
-                                                <p class="about-card__text">
+                                        <div class="cyber-about-grid ">
+                                            <div class="cyber-about-card cyber-about-card--wide">
+                                                <div class="cyber-about-card__label ">Backstory</div>
+                                                <h3 class="cyber-about-card__heading">Web developer with a game builder
+                                                    mindset</h3>
+                                                <p class="cyber-about-card__text">
                                                     Based in Bahay Toro, Quezon City, I build websites and interactive
                                                     experiences with a strong focus on design, structure, and usability.
                                                 </p>
-                                                <p class="about-card__text">
+                                                <p class="cyber-about-card__text">
                                                     I studied Web Design through TESDA in 2018, continued Web
                                                     Development in college, and kept expanding my skills through
                                                     self-study in Unity and 2D game development.
                                                 </p>
-                                                <p class="about-card__text">
+                                                <p class="cyber-about-card__text">
                                                     Programming became the main way I express ideas. From 2021 to 2026,
                                                     I kept developing as a web developer while exploring game
                                                     development as a space for creativity, systems thinking, and visual
@@ -165,51 +169,59 @@
                                                 </p>
                                             </div>
 
-                                            <div class="about-card">
-                                                <div class="about-card__label">Quest Log</div>
-                                                <div class="quest-list">
-                                                    <div class="quest-item">
-                                                        <span class="quest-item__year">2018</span>
-                                                        <span class="quest-item__text">Studied Web Design at TESDA.</span>
+                                            <div class="cyber-about-card">
+                                                <div class="cyber-about-card__label">Quest Log</div>
+                                                <div class="cyber-quest-list">
+                                                    <div class="cyber-quest-item">
+                                                        <span class="cyber-quest-item__year">2018</span>
+                                                        <span class="cyber-quest-item__text">Studied Web Design at
+                                                            TESDA.</span>
                                                     </div>
-                                                    <div class="quest-item">
-                                                        <span class="quest-item__year">College</span>
-                                                        <span class="quest-item__text">Completed BS Information Technology at Bestlink College of the Philippines.</span>
+                                                    <div class="cyber-quest-item">
+                                                        <span class="cyber-quest-item__year">College</span>
+                                                        <span class="cyber-quest-item__text">Completed BS Information
+                                                            Technology at Bestlink College of the Philippines.</span>
                                                     </div>
-                                                    <div class="quest-item">
-                                                        <span class="quest-item__year">2021-2026</span>
-                                                        <span class="quest-item__text">Focused on web development, UI work, and portfolio projects.</span>
+                                                    <div class="cyber-quest-item">
+                                                        <span class="cyber-quest-item__year">2021-2026</span>
+                                                        <span class="cyber-quest-item__text">Focused on web development, UI
+                                                            work, and portfolio projects.</span>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="about-card">
-                                                <div class="about-card__label">Equipped Skills</div>
-                                                <div class="skill-meter">
-                                                    <div class="skill-meter__top"><span>Frontend Development</span><span>88</span></div>
-                                                    <div class="skill-meter__bar"><span style="width: 88%"></span></div>
+                                            <div class="cyber-about-card">
+                                                <div class="cyber-about-card__label">Equipped Skills</div>
+                                                <div class="cyber-skill-meter">
+                                                    <div class="cyber-skill-meter__top"><span>Frontend
+                                                            Development</span><span>88</span></div>
+                                                    <div class="cyber-skill-meter__bar"><span style="width: 88%"></span></div>
                                                 </div>
-                                                 <div class="skill-meter">
-                                                    <div class="skill-meter__top"><span>Backend Development</span><span>90</span></div>
-                                                    <div class="skill-meter__bar"><span style="width: 90%"></span></div>
+                                                <div class="cyber-skill-meter">
+                                                    <div class="cyber-skill-meter__top"><span>Backend
+                                                            Development</span><span>90</span></div>
+                                                    <div class="cyber-skill-meter__bar"><span style="width: 90%"></span></div>
                                                 </div>
-                                                <div class="skill-meter">
-                                                    <div class="skill-meter__top"><span>UI / Visual Design</span><span>80</span></div>
-                                                    <div class="skill-meter__bar"><span style="width: 80%"></span></div>
+                                                <div class="cyber-skill-meter">
+                                                    <div class="cyber-skill-meter__top"><span>UI / Visual
+                                                            Design</span><span>80</span></div>
+                                                    <div class="cyber-skill-meter__bar"><span style="width: 80%"></span></div>
                                                 </div>
-                                                <div class="skill-meter">
-                                                    <div class="skill-meter__top"><span>JavaScript</span><span>70</span></div>
-                                                    <div class="skill-meter__bar"><span style="width: 70%"></span></div>
+                                                <div class="cyber-skill-meter">
+                                                    <div class="cyber-skill-meter__top"><span>JavaScript</span><span>70</span>
+                                                    </div>
+                                                    <div class="cyber-skill-meter__bar"><span style="width: 70%"></span></div>
                                                 </div>
-                                                <div class="skill-meter">
-                                                    <div class="skill-meter__top"><span>Unity / Game Systems</span><span>45</span></div>
-                                                    <div class="skill-meter__bar"><span style="width: 45%"></span></div>
+                                                <div class="cyber-skill-meter">
+                                                    <div class="cyber-skill-meter__top"><span>Unity / Game
+                                                            Systems</span><span>45</span></div>
+                                                    <div class="cyber-skill-meter__bar"><span style="width: 45%"></span></div>
                                                 </div>
                                             </div>
 
-                                            <div class="about-card">
-                                                <div class="about-card__label">Current Mission</div>
-                                                <p class="about-card__text mb-0">
+                                            <div class="cyber-about-card">
+                                                <div class="cyber-about-card__label">Current Mission</div>
+                                                <p class="cyber-about-card__text mb-0">
                                                     Build polished web interfaces, ship stronger portfolio work, and
                                                     turn game development ideas into playable projects with clearer art
                                                     direction and better systems.
@@ -223,13 +235,53 @@
                     </div>
 
                 </div>
+        </section>      
+          <section class="cyber-section py-5">
+            <div class="container scrollspy" id="stats">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="cyber-section-card">
+                            <div class="cyber-section-card__header">
+                                <div>
+                                    <div class="cyber-section-card__eyebrow">System Diagnostics</div>
+                                    <h2 class="cyber-section-title">Activity Stats</h2>
+                                </div>
+                                <div class="cyber-section-card__signal">
+                                    <i class="bi bi-activity"></i> Real-time
+                                </div>
+                            </div>
+                            <div class="row g-4">
+                                <div class="col-12 col-md-4">
+                                    <div class="cyber-stat-box">
+                                        <div class="cyber-stat-box__value">20+</div>
+                                        <div class="cyber-stat-box__label">Projects Completed</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="cyber-stat-box">
+                                        <div class="cyber-stat-box__value">5+</div>
+                                        <div class="cyber-stat-box__label">Years Experience</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="cyber-stat-box">
+                                        <div class="cyber-stat-box__value">100%</div>
+                                        <div class="cyber-stat-box__label">Commitment</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
+        
 
-        <section class="linear-grey py-5">
+        <section class="cyber-section py-5">
             <div class="row scrollspy" id="projects">
                 <div class="col-12">
-                    <div class="card linear-grey z-depth-4"><br>
-                        <h3 class="white-text center">Projects</h3>
+                    <div class="cyber-section-card">
+                        <h3 class="cyber-section-title">Projects</h3>
                         <div class="row">
                             <!-- Left: Inventory UI -->
                             <div class="col-12 col-lg-5">
@@ -239,7 +291,8 @@
                                     <div class="inventory-item" data-project="sfhs" data-category="web-design">
                                         <div class="item-category-badge web-design"><i class="bi bi-palette"></i></div>
                                         <div class="item-icon">
-                                            <img src="img/projects/sfhs_icon.png" alt="SFHS" class="item-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                                            <img src="img/projects/sfhs_icon.png" alt="SFHS" class="item-img"
+                                                onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
                                             <i class="bi bi-globe" style="display:none"></i>
                                         </div>
                                         <div class="item-name">SFHS</div>
@@ -248,7 +301,8 @@
                                     <div class="inventory-item" data-project="bizland" data-category="web-design">
                                         <div class="item-category-badge web-design"><i class="bi bi-palette"></i></div>
                                         <div class="item-icon">
-                                            <img src="img/projects/bizland_icon.png" alt="Bizland" class="item-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                                            <img src="img/projects/bizland_icon.png" alt="Bizland" class="item-img"
+                                                onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
                                             <i class="bi bi-building" style="display:none"></i>
                                         </div>
                                         <div class="item-name">Bizland</div>
@@ -257,7 +311,8 @@
                                     <div class="inventory-item" data-project="r5event" data-category="web-design">
                                         <div class="item-category-badge web-design"><i class="bi bi-palette"></i></div>
                                         <div class="item-icon">
-                                            <img src="img/projects/r5event_icon.png" alt="R5 Event" class="item-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                                            <img src="img/projects/r5event_icon.png" alt="R5 Event" class="item-img"
+                                                onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
                                             <i class="bi bi-calendar-event" style="display:none"></i>
                                         </div>
                                         <div class="item-name">R5 Event</div>
@@ -265,19 +320,96 @@
                                     </div>
                                     <!-- Full Stack Web Development Projects -->
                                     <div class="inventory-item" data-project="fullstack1" data-category="fullstack">
-                                        <div class="item-category-badge fullstack"><i class="bi bi-code-slash"></i></div>
+                                        <div class="item-category-badge fullstack"><i class="bi bi-code-slash"></i>
+                                        </div>
                                         <div class="item-icon">
-                                            <img src="img/projects/fullstack1_icon.png" alt="Full Stack" class="item-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-                                           <i class="bi bi-mortarboard" style="display: none;"></i>
+                                            <img src="img/projects/fullstack1_icon.png" alt="Full Stack"
+                                                class="item-img"
+                                                onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                                            <i class="bi bi-mortarboard" style="display: none;"></i>
                                         </div>
                                         <div class="item-name">Sisreg</div>
+                                        <div class="item-qty">1</div>
+                                    </div>
+                                    <!-- Travel Agent Projects -->
+                                    <div class="inventory-item" data-project="travagent" data-category="fullstack">
+                                        <div class="item-category-badge fullstack"><i class="bi bi-code-slash"></i>
+                                        </div>
+                                        <div class="item-icon">
+                                            <img src="img/projects/travagent_icon.png" alt="TravAgent" class="item-img"
+                                                onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                                            <i class="bi bi-airplane" style="display: none;"></i>
+                                        </div>
+                                        <div class="item-name">TravAgent</div>
+                                        <div class="item-qty">1</div>
+                                    </div>
+                                    <!-- delivery tracker -->
+                                    <div class="inventory-item" data-project="delivery_tracker"
+                                        data-category="fullstack">
+                                        <div class="item-category-badge fullstack"><i class="bi bi-code-slash"></i>
+                                        </div>
+                                        <div class="item-icon">
+                                            <img src="img/projects/mis_icon.png" alt="delivery tracker" class="item-img"
+                                                onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                                            <i class="bi bi-truck" style="display: none;"></i>
+                                        </div>
+                                        <div class="item-name">Delivery Tracker</div>
+                                        <div class="item-qty">1</div>
+                                    </div>
+                                    <!-- HR2: Human Resource Management System -->
+                                    <div class="inventory-item" data-project="hr2" data-category="fullstack">
+                                        <div class="item-category-badge fullstack"><i class="bi bi-code-slash"></i>
+                                        </div>
+                                        <div class="item-icon">
+                                            <img src="img/projects/hr2_icon.png" alt="HR2" class="item-img"
+                                                onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                                            <i class="bi bi-hospital" style="display: none;"></i>
+                                        </div>
+                                        <div class="item-name">HR Management System 2</div>
+                                        <div class="item-qty">1</div>
+                                    </div>
+                                    <!-- NFC Attendance System -->
+                                    <div class="inventory-item" data-project="nfc_attendance" data-category="fullstack">
+                                        <div class="item-category-badge fullstack"><i class="bi bi-code-slash"></i>
+                                        </div>
+                                        <div class="item-icon">
+                                            <img src="img/projects/nfc_attendance_icon.png" alt="NFC Attendance"
+                                                class="item-img"
+                                                onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                                            <i class="bi bi-people" style="display: none;"></i>
+                                        </div>
+                                        <div class="item-name">NFC Attendance</div>
+                                        <div class="item-qty">1</div>
+                                    </div>
+                                    <!-- Apparo -->
+                                    <div class="inventory-item" data-project="Apparo" data-category="fullstack">
+                                        <div class="item-category-badge fullstack"><i class="bi bi-code-slash"></i>
+                                        </div>
+                                        <div class="item-icon">
+                                            <img src="img/projects/apparo_icon.png" alt="Apparo" class="item-img"
+                                                onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                                            <i class="bi bi-card-list" style="display: none;"></i>
+                                        </div>
+                                        <div class="item-name">Apparo</div>
+                                        <div class="item-qty">1</div>
+                                    </div>
+                                    <!-- LearnQuest -->
+                                    <div class="inventory-item" data-project="learnquest" data-category="game">
+                                        <div class="item-category-badge game"><i class="bi bi-controller"></i></div>
+                                        <div class="item-icon">
+                                            <img src="img/projects/learnquest_icon.png" alt="LearnQuest" class="item-img"
+                                                onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                                            <i class="bi bi-controller" style="display:none"></i>
+                                        </div>
+                                        <div class="item-name">LearnQuest</div>
                                         <div class="item-qty">1</div>
                                     </div>
                                     <!-- Game Development Projects -->
                                     <div class="inventory-item" data-project="game1" data-category="game">
                                         <div class="item-category-badge game"><i class="bi bi-controller"></i></div>
                                         <div class="item-icon">
-                                            <img src="img/projects/game1_icon.png" alt="Game" class="item-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                                            <img src="img/projects/game1_icon.png" alt="Game" class="item-img"
+                                                onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
                                             <i class="bi bi-controller" style="display:none"></i>
                                         </div>
                                         <div class="item-name">???</div>
@@ -286,8 +418,10 @@
                                 </div>
                                 <!-- Category Legend -->
                                 <div class="category-legend mt-2">
-                                    <span class="legend-item"><span class="legend-dot web-design"></span> Web Design</span>
-                                    <span class="legend-item"><span class="legend-dot fullstack"></span> Full Stack</span>
+                                    <span class="legend-item"><span class="legend-dot web-design"></span> Web
+                                        Design</span>
+                                    <span class="legend-item"><span class="legend-dot fullstack"></span> Full
+                                        Stack</span>
                                     <span class="legend-item"><span class="legend-dot game"></span> Game Dev</span>
                                 </div>
                             </div>
@@ -306,10 +440,12 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#projectCarousel" data-bs-slide="prev">
                                                 <span class="carousel-control-prev-icon"></span>
                                             </button>
-                                            <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#projectCarousel" data-bs-slide="next">
                                                 <span class="carousel-control-next-icon"></span>
                                             </button>
                                         </div>
@@ -319,13 +455,16 @@
                                         <span class="badge bg-primary" id="detailCategory"></span>
                                     </div>
                                     <div class="details-caption" id="detailCaption">
-                                        <i class="bi bi-chat-left-quote"></i> Click an item from the inventory to view details.
+                                        <i class="bi bi-chat-left-quote"></i> Click an item from the inventory to view
+                                        details.
                                     </div>
                                     <div class="details-body">
                                         <p class="text-white" id="detailDescription"></p>
                                         <div class="details-meta">
-                                            <p class="text-white mb-1"><i class="bi bi-calendar3"></i> <strong>Release Date:</strong> <span id="detailDate">-</span></p>
-                                            <p class="text-white mb-1"><i class="bi bi-tag"></i> <strong>Genre:</strong> <span id="detailGenre">-</span></p>
+                                            <p class="text-white mb-1"><i class="bi bi-calendar3"></i> <strong>Release
+                                                    Date:</strong> <span id="detailDate">-</span></p>
+                                            <p class="text-white mb-1"><i class="bi bi-tag"></i> <strong>Genre:</strong>
+                                                <span id="detailGenre">-</span></p>
                                         </div>
                                         <div class="details-links" id="detailLinks"></div>
                                         <!-- Radar Chart for Languages & Tools -->
@@ -340,22 +479,22 @@
                     </div>
                 </div>
             </div>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+            </tbody>
+            </table>
+            </div>
+            </div>
 
-                                </div>
-                            </div>
-                        </div>
+            </div>
+            </div>
+            </div>
 
 
-                    </div>
+            </div>
 
-                </div>
+            </div>
             </div>
         </section>
-        <section class="linear-grey py-5">
+        <section class="cyber-section py-5">
             <div class="row scrollspy" id="skills">
                 <div class="col-12">
                     <div class="skills-panel shadow-lg">
@@ -377,24 +516,37 @@
                                         <span class="skills-chip"><i class="bi bi-filetype-html"></i> HTML</span>
                                         <span class="skills-chip"><i class="bi bi-filetype-css"></i> CSS</span>
                                         <span class="skills-chip"><i class="bi bi-filetype-js"></i> JavaScript</span>
+                                        <span class="skills-chip"><i class="bi bi-filetype-php"></i> PHP</span>
+                                        <span class="skills-chip"><?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="15px" viewBox="0 0 128 128" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(255, 255, 255);fill-opacity:1;" d="M 26.027344 0.136719 C 25.824219 0.214844 20.085938 3.484375 13.28125 7.394531 C 5.035156 12.136719 0.800781 14.632812 0.574219 14.867188 C 0.394531 15.070312 0.191406 15.421875 0.128906 15.644531 C -0.0429688 16.21875 -0.0546875 100.347656 0.117188 100.953125 C 0.179688 101.1875 0.382812 101.53125 0.566406 101.722656 C 1.011719 102.191406 50.238281 130.496094 50.835938 130.632812 C 51.113281 130.699219 51.425781 130.6875 51.734375 130.601562 C 52.40625 130.433594 101.503906 102.191406 101.941406 101.730469 C 102.121094 101.53125 102.324219 101.1875 102.390625 100.953125 C 102.476562 100.675781 102.507812 96.277344 102.507812 87.015625 L 102.507812 73.480469 L 114.476562 66.605469 C 125.761719 60.117188 126.453125 59.710938 126.742188 59.265625 L 127.039062 58.785156 L 127.039062 44.207031 C 127.039062 28.335938 127.070312 29.230469 126.441406 28.65625 C 126.273438 28.507812 120.523438 25.152344 113.652344 21.195312 L 101.171875 14.015625 L 99.785156 14.015625 L 87.574219 21.027344 C 80.851562 24.894531 75.136719 28.199219 74.859375 28.378906 C 74.582031 28.5625 74.25 28.902344 74.113281 29.148438 L 73.867188 29.574219 L 73.8125 43.308594 L 73.761719 57.046875 L 63.679688 62.855469 C 58.132812 66.042969 53.515625 68.683594 53.417969 68.707031 C 53.238281 68.757812 53.226562 67.449219 53.226562 42.203125 L 53.226562 15.632812 L 52.960938 15.175781 C 52.628906 14.621094 54.121094 15.507812 39.136719 6.894531 C 26.570312 -0.332031 26.871094 -0.179688 26.027344 0.136719 Z M 37.578125 10.65625 C 42.835938 13.671875 47.136719 16.167969 47.136719 16.199219 C 47.136719 16.230469 42.527344 18.894531 36.894531 22.132812 L 26.644531 28.015625 L 16.414062 22.132812 C 10.792969 18.894531 6.1875 16.230469 6.1875 16.199219 C 6.1875 16.167969 10.785156 13.503906 16.40625 10.273438 L 26.613281 4.402344 L 27.316406 4.785156 C 27.710938 5 32.332031 7.640625 37.578125 10.65625 Z M 110.730469 24.191406 C 116.265625 27.378906 120.84375 30.011719 120.886719 30.054688 C 121.003906 30.160156 100.703125 41.828125 100.425781 41.816406 C 100.148438 41.808594 80.097656 30.246094 80.105469 30.105469 C 80.117188 29.945312 100.289062 18.339844 100.492188 18.371094 C 100.585938 18.394531 105.195312 21.015625 110.730469 24.191406 Z M 14.828125 25.875 L 24.585938 31.492188 L 24.640625 59.304688 L 24.691406 87.121094 L 24.929688 87.496094 C 25.054688 87.695312 25.289062 87.964844 25.460938 88.089844 C 25.621094 88.207031 31.050781 91.300781 37.523438 94.953125 L 49.28125 101.59375 L 49.28125 113.359375 C 49.28125 119.816406 49.238281 125.113281 49.183594 125.113281 C 49.140625 125.113281 38.976562 119.296875 26.601562 112.175781 L 4.105469 99.238281 L 4.074219 59.464844 L 4.054688 19.703125 L 4.554688 19.980469 C 4.84375 20.132812 9.460938 22.785156 14.828125 25.875 Z M 49.28125 45.453125 L 49.28125 71.082031 L 48.886719 71.339844 C 48.351562 71.679688 28.8125 82.910156 28.746094 82.910156 C 28.714844 82.910156 28.691406 71.339844 28.691406 57.195312 L 28.703125 31.492188 L 38.910156 25.621094 C 44.523438 22.390625 49.152344 19.769531 49.207031 19.789062 C 49.246094 19.8125 49.28125 31.363281 49.28125 45.453125 Z M 88.222656 39.558594 L 98.453125 45.441406 L 98.453125 57.101562 C 98.453125 68.164062 98.441406 68.757812 98.273438 68.695312 C 98.164062 68.652344 93.535156 66 87.980469 62.800781 L 77.867188 56.992188 L 77.867188 45.335938 C 77.867188 38.917969 77.898438 33.675781 77.929688 33.675781 C 77.972656 33.675781 82.601562 36.320312 88.222656 39.558594 Z M 123.09375 45.261719 C 123.09375 51.644531 123.050781 56.910156 123.007812 56.960938 C 122.933594 57.078125 102.699219 68.738281 102.570312 68.738281 C 102.539062 68.738281 102.507812 63.496094 102.507812 57.078125 L 102.507812 45.421875 L 112.714844 39.546875 C 118.335938 36.320312 122.964844 33.675781 123.007812 33.675781 C 123.0625 33.675781 123.09375 38.886719 123.09375 45.261719 Z M 86.230469 66.46875 C 94.835938 71.421875 96.320312 72.308594 96.171875 72.425781 C 96.074219 72.488281 92.8125 74.363281 88.929688 76.582031 C 85.046875 78.796875 74.988281 84.53125 66.570312 89.328125 L 51.273438 98.054688 L 50.785156 97.789062 C 47.863281 96.191406 30.910156 86.546875 30.910156 86.472656 C 30.902344 86.3125 75.765625 60.53125 75.945312 60.597656 C 76.03125 60.628906 80.660156 63.269531 86.230469 66.46875 Z M 98.433594 87.558594 L 98.398438 99.238281 L 75.914062 112.175781 C 63.542969 119.296875 53.375 125.113281 53.324219 125.113281 C 53.269531 125.113281 53.226562 120.359375 53.226562 113.359375 L 53.226562 101.59375 L 75.765625 88.742188 C 88.148438 81.675781 98.324219 75.890625 98.378906 75.878906 C 98.421875 75.878906 98.441406 81.132812 98.433594 87.558594 Z M 98.433594 87.558594 "/>
+</g>
+</svg>
+Laravel
+</span>
                                         <span class="skills-chip"><i class="bi bi-bootstrap"></i> Bootstrap</span>
                                         <span class="skills-chip"><i class="bi bi-unity"></i> Unity</span>
                                         <span class="skills-chip"><i class="bi bi-database"></i> MariaDB</span>
+                                        <span class="skills-chip"><img src="img/XAMPP logo free icon 2.svg" alt="" srcset="" style="width: 20px; height: 20px; color: aliceblue;">Xampp</span>
                                     </div>
 
                                     <div class="skills-sidecard__label mt-4">Special Traits</div>
                                     <div class="quest-list">
                                         <div class="quest-item">
                                             <span class="quest-item__year">UI</span>
-                                            <span class="quest-item__text">Builds game-inspired layouts and interface-driven pages.</span>
+                                            <span class="quest-item__text">Builds game-inspired layouts and
+                                                interface-driven pages.</span>
                                         </div>
                                         <div class="quest-item">
                                             <span class="quest-item__year">Code</span>
-                                            <span class="quest-item__text">Comfortable across frontend structure, interaction, and debugging.</span>
+                                            <span class="quest-item__text">Comfortable across frontend structure,
+                                                interaction, and debugging.</span>
                                         </div>
                                         <div class="quest-item">
                                             <span class="quest-item__year">Create</span>
-                                            <span class="quest-item__text">Explores 2D game systems, visuals, and playable concepts.</span>
+                                            <span class="quest-item__text">Explores 2D game systems, visuals, and
+                                                playable concepts.</span>
                                         </div>
                                     </div>
                                 </div>
@@ -404,7 +556,8 @@
                                 <div class="skills-grid">
                                     <div class="skills-chart-card">
                                         <div class="skills-chart-card__header">
-                                            <h4 class="skills-chart-card__title"><i class="bi bi-braces"></i> Language Matrix</h4>
+                                            <h4 class="skills-chart-card__title"><i class="bi bi-braces"></i> Language
+                                                Matrix</h4>
                                             <span class="skills-chart-card__tag">Primary Stats</span>
                                         </div>
                                         <div class="chart-container skills-chart-box">
@@ -414,7 +567,8 @@
 
                                     <div class="skills-chart-card">
                                         <div class="skills-chart-card__header">
-                                            <h4 class="skills-chart-card__title"><i class="bi bi-tools"></i> Tool Arsenal</h4>
+                                            <h4 class="skills-chart-card__title"><i class="bi bi-tools"></i> Tool
+                                                Arsenal</h4>
                                             <span class="skills-chart-card__tag">Support Gear</span>
                                         </div>
                                         <div class="chart-container skills-chart-box">
@@ -428,44 +582,45 @@
                 </div>
             </div>
         </section>
-        <section class="linear-grey py-5">
+        <section class="cyber-section py-5">
             <div class="row scrollspy" id="contact">
                 <div class="col-12 col-lg-6 offset-lg-3">
-                    <div class="card linear-grey">
-                        <div class="card-body">
-                            <h3 class="text-white text-center">Contact</h3>
-                            <div class="container">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-white"></th>
-                                            <th class="text-white"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th class="text-white">Gmail</th>
-                                            <th class="text-white"> <a href="mailto:savagekiller096@gmail.com"
-                                                    class="btn btn-lg btn-light text-dark">Message Me</a></th>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-white">Facebook</th>
-                                            <th class="text-white"><a href="https://www.facebook.com/gatus.roly/"
-                                                    class="btn btn-lg btn-light text-dark">Message Me</a></th>
-                                        </tr>
-
-                                        <tr>
-                                            <th class="text-white">Phone Number</th>
-                                            <th class="text-white"><a href="tel:09982480471"
-                                                    class="btn btn-lg btn-light text-dark">Call Me</a></th>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-
-
-
-
+                    <div class="cyberpunk-card">
+                        <div class="cyberpunk-card__header">
+                            <h3 class="cyberpunk-title">Contact</h3>
+                            <div class="cyberpunk-title__glitch"></div>
+                        </div>
+                        <div class="cyberpunk-card__body">
+                            <div class="row g-4">
+                                <div class="col-12">
+                                    <a href="mailto:savagekiller096@gmail.com" class="cyberpunk-btn">
+                                        <i class="bi bi-envelope"></i>
+                                        <span>Gmail</span>
+                                        <div class="cyberpunk-btn__glitch"></div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="https://www.facebook.com/gatus.roly/" class="cyberpunk-btn">
+                                        <i class="bi bi-facebook"></i>
+                                        <span>Facebook</span>
+                                        <div class="cyberpunk-btn__glitch"></div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="tel:09982480471" class="cyberpunk-btn">
+                                        <i class="bi bi-telephone"></i>
+                                        <span>Call Me</span>
+                                        <div class="cyberpunk-btn__glitch"></div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="cyberpunk-divider">
+                                <span class="cyberpunk-divider__text">// CONNECT</span>
+                            </div>
+                            <div class="cyberpunk-social">
+                                <a href="mailto:savagekiller096@gmail.com" class="cyberpunk-social__link"><i class="bi bi-envelope-fill"></i></a>
+                                <a href="https://www.facebook.com/gatus.roly/" class="cyberpunk-social__link"><i class="bi bi-facebook"></i></a>
+                                <a href="tel:09982480471" class="cyberpunk-social__link"><i class="bi bi-telephone-fill"></i></a>
                             </div>
                         </div>
                     </div>
@@ -532,16 +687,16 @@
 
     <script>
         // Radar Charts for Skills
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Language Radar Chart
             const languageCtx = document.getElementById('languageRadar').getContext('2d');
             new Chart(languageCtx, {
                 type: 'radar',
                 data: {
-                    labels: ['HTML', 'CSS', 'Javascript', 'JQuery', 'C#', 'bootstrap', 'Materialize CSS', 'react', 'node.js', 'MariaDB',],
+                    labels: ['HTML', 'CSS', 'Javascript', 'JQuery', 'C#', 'bootstrap', 'Materialize CSS', 'react', 'node.js', 'MariaDB','PHP', 'Laravel'],
                     datasets: [{
                         label: 'Proficiency',
-                        data: [90, 85, 75, 70, 65, 80, 70, 60, 55, 50],
+                        data: [90, 85, 75, 70, 65, 80, 70, 60, 55, 50,70,50],
                         backgroundColor: 'rgba(54, 162, 235, 0.3)',
                         borderColor: 'rgba(54, 162, 235, 1)',
                         borderWidth: 2,
@@ -556,7 +711,7 @@
                         r: {
                             angleLines: { color: 'rgba(255, 255, 255, 0.2)' },
                             grid: { color: 'rgba(255, 255, 255, 0.2)' },
-                            pointLabels: { 
+                            pointLabels: {
                                 color: '#fff',
                                 font: { size: 14, weight: 'bold' }
                             },
@@ -594,7 +749,7 @@
                         r: {
                             angleLines: { color: 'rgba(255, 255, 255, 0.2)' },
                             grid: { color: 'rgba(255, 255, 255, 0.2)' },
-                            pointLabels: { 
+                            pointLabels: {
                                 color: '#fff',
                                 font: { size: 14, weight: 'bold' }
                             },
@@ -611,6 +766,39 @@
 
             // Project Inventory System
             const projectData = {
+                 learnquest: {
+                    title: 'LearnQuest',
+                    category: 'Game Project',
+                    caption: 'A game where it contains mini games that can help students learn different subjects in a fun and interactive way.',
+                    description: 'LearnQuest is an engaging educational game that incorporates mini-games to make learning subjects like math, science, and history enjoyable and interactive for students. The game features a variety of challenges and activities designed to reinforce key concepts while keeping students motivated and engaged. Built with a focus on education and fun, LearnQuest aims to enhance the learning experience while promoting critical thinking and problem-solving skills.',
+                    date: 'April 24, 2025',
+                    genre: 'Educational Game',
+                    link: null,
+                    images: ['img/projects/sfhs_1.png', 'img/projects/sfhs_2.png'],
+                    tech: { labels: ['Unity', 'C#', 'Adobe Photoshop'], data: [90, 85, 40] }
+                },
+                Apparo: {
+                    title: 'Apparo',
+                    category: 'Full Stack Web Development',
+                    caption: 'A tasklist with a pomodoro timer with tasklist and pomodoro timer features, calendar event maker, and note taking features with a freedom wall for users to write and post their thoughts and feelings.',
+                    description: 'Apparo is a comprehensive productivity web application that combines a task list, pomodoro timer, calendar event maker, note-taking features, and a unique freedom wall for users to express their thoughts and feelings. The task list allows users to organize their daily tasks with due dates and priorities. The pomodoro timer helps users manage their time effectively by breaking work into intervals. The calendar event maker enables users to schedule appointments and reminders. The note-taking feature provides a space for jotting down ideas and important information. The freedom wall fosters a supportive community where users can share their experiences and connect with others. Built with a focus on user experience and functionality, Apparo aims to enhance productivity while promoting mental well-being.',
+                    date: 'April 8, 2025',
+                    genre: 'Productivity Web App',
+                    link: null,
+                    images: ['img/projects/sfhs_1.png', 'img/projects/sfhs_2.png'],
+                    tech: { labels: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'PHP', 'MySQL', 'Xampp'], data: [95, 90, 80, 90, 85, 80, 95] }
+                },
+                hr2: {
+                    title: 'HR2: Human Resource Management System for Hospital',
+                    category: 'Full Stack Web Development',
+                    caption: 'For managing hospital staff, schedules, training plan, succession planning, and resources',
+                    description: 'A comprehensive human resource management system designed for hospital administration. This project includes features for managing staff information, scheduling, training plans, succession planning, and resource allocation. Built with a focus on usability and efficiency to streamline HR processes in a healthcare setting.',
+                    date: 'April 22, 2025',
+                    genre: 'HR Management System',
+                    link: null,
+                    images: ['img/projects/sfhs_1.png', 'img/projects/sfhs_2.png'],
+                    tech: { labels: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'PHP', 'MySQL', 'Xampp'], data: [95, 90, 80, 90, 85, 80, 95] }
+                },
                 sfhs: {
                     title: 'San Francisco High School',
                     category: 'Web Design',
@@ -644,6 +832,39 @@
                     images: ['img/projects/r5event_1.png', 'img/projects/r5event_2.png'],
                     tech: { labels: ['HTML', 'CSS', 'JavaScript', 'Materialize CSS'], data: [85, 80, 65, 85] }
                 },
+                travagent: {
+                    title: 'TravAgent',
+                    category: 'Full Stack Web Development',
+                    caption: 'Back office for Travel and tour agency',
+                    description: 'A Back office for Travel and tour agency where users can manage bookings, customer information, and travel itineraries.',
+                    date: 'February 15, 2026',
+                    genre: 'Full Stack Web App',
+                    link: 'https://travagent.jampzdev.com',
+                    images: ['img/projects/travagent_1.png', 'img/projects/travagent_2.png'],
+                    tech: { labels: ['Laravel', 'React', 'Node.js', 'PHP', 'Xampp', 'MySQL', 'SQLyog', 'Hostinger'], data: [85, 80, 65, 85, 80, 75, 70, 65] }
+                },
+                delivery_tracker: {
+                    title: 'Delivery Tracker',
+                    category: 'Full Stack Web Development',
+                    caption: 'Real-time delivery tracking system',
+                    description: 'A real-time delivery tracking system for managing and monitoring package deliveries.',
+                    date: 'TBA',
+                    genre: 'Full Stack Web App',
+                    link: null,
+                    images: ['img/projects/delivery_tracker_1.png', 'img/projects/delivery_tracker_2.png'],
+                    tech: { labels: ['HTML', 'CSS', 'JavaScript', 'PHP', 'Xampp', 'MySQL'], data: [92, 80, 75, 85, 90, 75] }
+                },
+                nfc_attendance: {
+                    title: 'NFC Attendance System',
+                    category: 'Full Stack Web Development',
+                    caption: 'Contactless attendance tracking',
+                    description: 'A contactless attendance tracking system using NFC technology.',
+                    date: 'TBA',
+                    genre: 'Full Stack Web App',
+                    link: null,
+                    images: ['img/projects/nfc_attendance_1.png', 'img/projects/nfc_attendance_2.png'],
+                    tech: { labels: ['HTML', 'CSS', 'JavaScript', 'PHP', 'Xampp', 'MySQL', 'Arduino', 'C++', 'Hardware Components'], data: [92, 80, 40, 85, 90, 75, 80, 75, 70] }
+                },
                 fullstack1: {
                     title: 'School Management System: Registrar Portal',
                     category: 'Full Stack Web Development',
@@ -668,7 +889,7 @@
                         'img/sisreg/student.png',
                         'img/sisreg/studenttrack.png'
                     ],
-                    tech: { labels: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'PHP', 'MySQL'], data: [70, 65, 60, 55, 50, 45] }
+                    tech: { labels: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'PHP', 'MySQL'], data: [100, 100, 70, 80, 90, 75] }
                 },
                 game1: {
                     title: 'Untitled Game',
@@ -695,7 +916,7 @@
 
                 // Update UI
                 document.getElementById('detailTitle').textContent = data.title;
-                
+
                 // Update category badge with color based on type
                 const categoryBadge = document.getElementById('detailCategory');
                 let categoryText, categoryClass;
@@ -717,7 +938,7 @@
                 }
                 categoryBadge.textContent = categoryText;
                 categoryBadge.className = categoryClass;
-                
+
                 document.getElementById('detailCaption').textContent = data.caption;
                 document.getElementById('detailDescription').textContent = data.description;
                 document.getElementById('detailDate').textContent = data.date;
