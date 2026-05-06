@@ -1227,6 +1227,13 @@ nav{
     margin-top: 16px;
   }
 
+  .cyber-profile-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+  }
+
   .cyber-profile-tag {
     display: inline-flex;
     align-items: center;
@@ -1238,6 +1245,39 @@ nav{
     color: #bae6fd;
     font-size: 0.8rem;
     font-family: 'Courier New', monospace;
+  }
+
+  .cyber-download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 46px;
+    padding: 12px 14px;
+    border: 1px solid rgba(0, 240, 255, 0.4);
+    border-radius: 4px;
+    background: linear-gradient(180deg, rgba(0, 240, 255, 0.14) 0%, rgba(0, 100, 140, 0.12) 100%);
+    color: #d9faff;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.08);
+  }
+
+  .cyber-download-btn:hover {
+    color: #ffffff;
+    border-color: rgba(103, 232, 249, 0.85);
+    background: linear-gradient(180deg, rgba(0, 240, 255, 0.22) 0%, rgba(0, 100, 140, 0.18) 100%);
+    box-shadow: 0 0 18px rgba(0, 240, 255, 0.18);
+    transform: translateY(-1px);
+  }
+
+  .cyber-download-btn--ghost {
+    background: rgba(2, 6, 23, 0.7);
+    color: #7dd3fc;
   }
 
   .cyber-status-card {
@@ -1695,6 +1735,93 @@ nav{
      ============================================ */
 
   @media (max-width: 768px) {
+    .cyber-section {
+      border-left-width: 0;
+      border-right-width: 0;
+    }
+
+    .cyber-section-card,
+    .cyber-profile-card,
+    .cyberpunk-card,
+    .skills-panel,
+    .skills-sidecard,
+    .skills-chart-card,
+    .project-details-panel {
+      padding: 16px;
+    }
+
+    .cyber-section-card__header,
+    .skills-panel__header,
+    .project-details-panel .details-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .cyber-section-title {
+      font-size: 1.45rem;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+
+    .cyber-section-title::before,
+    .cyber-section-title::after {
+      display: none;
+    }
+
+    .cyber-about-grid,
+    .skills-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .cyber-quest-item,
+    .quest-item {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .cyber-skill-meter__top {
+      font-size: 0.76rem;
+      gap: 8px;
+    }
+
+    .cyber-stat-box {
+      padding: 20px 16px;
+    }
+
+    .cyber-stat-box__value {
+      font-size: 2rem;
+    }
+
+    .inventory-grid {
+      grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
+      max-height: none;
+    }
+
+    .project-details-panel .details-body,
+    .project-details-panel .details-caption,
+    .project-details-panel .details-meta {
+      padding: 10px;
+    }
+
+    .project-details-panel .details-header h5 {
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .project-details-panel .details-header .badge {
+      white-space: normal;
+    }
+
+    .project-placeholder-img {
+      height: 220px;
+    }
+
+    .cyber-profile-actions {
+      grid-template-columns: 1fr;
+    }
+
     .cyberpunk-title {
       font-size: 1.4rem;
       letter-spacing: 2px;
@@ -1724,5 +1851,94 @@ nav{
 
     footer li {
       margin-bottom: 0;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .cyber-section.py-5,
+    .cyber-section.py-2 {
+      padding-top: 1rem !important;
+      padding-bottom: 1rem !important;
+    }
+
+    .cyber-section-card,
+    .cyber-profile-card,
+    .cyberpunk-card,
+    .skills-panel,
+    .skills-sidecard,
+    .skills-chart-card,
+    .project-details-panel {
+      padding: 14px;
+    }
+
+    .cyber-profile-card__name,
+    .cyberpunk-title {
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .cyber-about-card,
+    .cyber-stat-box {
+      padding: 14px;
+    }
+
+    .cyber-about-card__heading {
+      font-size: 1.08rem;
+    }
+
+    .cyber-about-card__text,
+    .cyber-quest-item__text,
+    .project-details-panel .details-body p {
+      font-size: 0.84rem;
+    }
+
+    .cyber-download-btn,
+    .cyberpunk-btn {
+      min-height: 44px;
+      padding: 12px 14px;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+    }
+
+    .cyberpunk-social {
+      gap: 12px;
+    }
+
+    .cyberpunk-social__link {
+      width: 42px;
+      height: 42px;
+      font-size: 1.1rem;
+    }
+
+    .inventory-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      padding: 10px;
+    }
+
+    .inventory-item {
+      padding: 8px 3px;
+    }
+
+    .inventory-item .item-icon {
+      width: 34px;
+      height: 34px;
+    }
+
+    .inventory-item .item-name {
+      font-size: 0.58rem;
+    }
+
+    .project-details-panel .carousel,
+    .project-details-panel .carousel-inner,
+    .project-placeholder-img {
+      max-height: 200px;
+      height: 200px;
+    }
+
+    .project-details-panel #projectTechRadar,
+    .skills-chart-box {
+      max-height: 220px !important;
+      height: 220px;
     }
   }
