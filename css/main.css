@@ -597,8 +597,9 @@
 .inventory-item .item-img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    image-rendering: pixelated;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 4px;
 }
 
 .inventory-item .item-icon i {
@@ -659,6 +660,12 @@
 
 .project-details-panel .carousel-inner {
     max-height: 280px;
+}
+
+.project-details-panel .carousel-item img {
+    height: 280px;
+    object-fit: cover;
+    object-position: top center;
 }
 
 .project-placeholder-img {
@@ -2123,6 +2130,7 @@ nav{
 
     .project-details-panel .carousel,
     .project-details-panel .carousel-inner,
+    .project-details-panel .carousel-item img,
     .project-placeholder-img {
       max-height: 200px;
       height: 200px;
