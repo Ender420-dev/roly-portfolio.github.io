@@ -1528,6 +1528,41 @@ nav{
     gap: 8px;
   }
 
+  .cv-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .cv-feature-grid > div {
+    min-height: 160px;
+    padding: 14px;
+    background: rgba(2, 6, 23, 0.5);
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-radius: 4px;
+  }
+
+  .cv-feature-grid i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 4px;
+    background: rgba(14, 165, 233, 0.12);
+    color: #67e8f9;
+    font-size: 1.05rem;
+  }
+
+  .cv-feature-grid strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #f8fafc;
+    font-size: 0.92rem;
+  }
+
   .cv-chip-list span {
     display: inline-flex;
     align-items: center;
@@ -1886,7 +1921,8 @@ nav{
 
     .cyber-about-grid,
     .skills-grid,
-    .cv-grid {
+    .cv-grid,
+    .cv-feature-grid {
       grid-template-columns: 1fr;
       gap: 16px;
     }
