@@ -1637,6 +1637,129 @@ nav{
      CYBERPUNK CONTACT SECTION
      ============================================ */
 
+/* Client-facing introduction and work framing */
+.client-hero {
+  padding: 84px 0 58px;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(0, 240, 255, 0.18), transparent 29%),
+    linear-gradient(135deg, #07101d 0%, #0b1626 55%, #07111b 100%);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.client-hero__content {
+  max-width: 850px;
+}
+
+.client-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  color: #a5f3fc;
+  font: 700 0.8rem/1 'Courier New', monospace;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.client-hero__eyebrow i {
+  color: #4ade80;
+  font-size: 0.55rem;
+}
+
+.client-hero h1 {
+  max-width: 790px;
+  margin: 0;
+  color: #f8fafc;
+  font-size: clamp(2.25rem, 5vw, 4.6rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.04;
+}
+
+.client-hero p {
+  max-width: 680px;
+  margin: 22px 0 0;
+  color: #cbd5e1;
+  font-size: 1.12rem;
+  line-height: 1.7;
+}
+
+.client-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.client-hero__actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 48px;
+  padding: 12px 18px;
+  border-radius: 5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.client-hero__actions a:hover { transform: translateY(-2px); }
+
+.client-hero__primary {
+  background: #00d9e8;
+  color: #05202a;
+  box-shadow: 0 8px 24px rgba(0, 217, 232, 0.2);
+}
+
+.client-hero__secondary {
+  border: 1px solid rgba(165, 243, 252, 0.52);
+  color: #e0faff;
+  background: rgba(8, 47, 73, 0.35);
+}
+
+.client-hero__proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-top: 24px;
+  color: #94a3b8;
+  font-size: 0.88rem;
+}
+
+.client-hero__proof i { color: #67e8f9; }
+
+.work-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.work-section-heading .cyber-section-title { margin-bottom: 0; }
+
+.work-section-heading p {
+  max-width: 390px;
+  margin: 0;
+  color: #cbd5e1;
+  line-height: 1.55;
+}
+
+.client-contact-copy {
+  max-width: 560px;
+  margin: 12px auto 0;
+  color: #cbd5e1;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Do not let incomplete entries be the first impression clients receive. */
+.inventory-item[data-project="hr2"],
+.inventory-item[data-project="learnquest"],
+.inventory-item[data-project="game1"] {
+  display: none;
+}
+
   .cyberpunk-card {
     background: linear-gradient(145deg, rgba(10, 15, 25, 0.95) 0%, rgba(5, 10, 20, 0.98) 100%);
     border: 2px solid #00f0ff;
@@ -1921,6 +2044,18 @@ nav{
      ============================================ */
 
   @media (max-width: 768px) {
+    .client-hero { padding: 64px 0 44px; }
+
+    .client-hero h1 { font-size: 2.35rem; }
+
+    .client-hero p { font-size: 1rem; }
+
+    .work-section-heading {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
     .cyber-section {
       border-left-width: 0;
       border-right-width: 0;
